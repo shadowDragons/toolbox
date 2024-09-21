@@ -1,0 +1,21 @@
+@layer components {
+    /* 全局布局 */
+    .tw-app-layout {
+        @apply tw-bg-fixed tw-bg-cover tw-bg-no-repeat tw-bg-center tw-min-h-full tw-w-full tw-flex tw-p-0 tw-m-0 tw-flex-col;
+    }
+
+    /* 页面容器 */
+    .tw-page-container {
+        @apply tw-flex tw-flex-auto tw-flex-col tw-mt-8 tw-items-center;
+    }
+
+    /* 页面包装容器 */
+    .tw-page-container > div {
+        @apply tw-max-w-[90%] md:tw-max-w-[80%] lg:tw-max-w-[70%] xl:tw-max-w-[60%] tw-flex-auto tw-mb-5;
+    }
+
+    /* 空白页样式,一般用于404和error页面 */
+    .tw-page-blank {
+        @apply tw-bg-white/80 tw-h-56 tw-w-full tw-drop-shadow-lg tw-rounded-md tw-flex tw-justify-center tw-items-center;
+    }
+}
