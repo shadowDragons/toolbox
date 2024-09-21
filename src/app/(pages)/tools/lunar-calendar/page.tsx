@@ -190,6 +190,50 @@ export default function LunarSolarCalendarPage() {
                         </div>
                     </CardContent>
                 </Card>
+                <Card className="tw-max-w-2xl tw-mx-auto tw-mt-8">
+                    <CardHeader>
+                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
+                            <span>API Usage</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="tw-mb-4">
+                            You can also use this lunar calendar converter programmatically via our
+                            API:
+                        </p>
+                        <p className="tw-font-bold tw-mt-4">Solar to Lunar conversion:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            GET /api/lunar-calendar?action=solarToLunar&date=2023-05-01
+                        </pre>
+                        <p className="tw-font-bold tw-mt-4">Lunar to Solar conversion:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            GET /api/lunar-calendar?action=lunarToSolar&date=2023-3-11&isLeap=false
+                        </pre>
+                        <p className="tw-mt-4">
+                            The date parameter should be in the format "YYYY-MM-DD". For lunar to
+                            solar conversion, add the isLeap parameter to specify if it's a leap
+                            month.
+                        </p>
+                        <p className="tw-mt-4">Example response for Solar to Lunar:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {`{
+    "lunarDate": "2023-3-11",
+    "lunarYearInChinese": "二〇二三",
+    "lunarMonthInChinese": "三",
+    "lunarDayInChinese": "十一",
+    "zodiac": "兔",
+    "isLeapMonth": false
+}`}
+                        </pre>
+                        <p className="tw-mt-4">Example response for Lunar to Solar:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {`{
+    "solarDate": "2023-05-01",
+    "weekDay": "Monday"
+}`}
+                        </pre>
+                    </CardContent>
+                </Card>
             </div>
             <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
                 <p>&copy; 2023 InstantTools. All rights reserved.</p>

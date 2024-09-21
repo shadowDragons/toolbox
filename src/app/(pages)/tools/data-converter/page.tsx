@@ -148,6 +148,37 @@ export default function DataConverterPage() {
                         </Tabs>
                     </CardContent>
                 </Card>
+                <Card className="tw-max-w-4xl tw-mx-auto tw-mt-8">
+                    <CardHeader>
+                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
+                            <span>API Usage</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="tw-mb-4">
+                            You can also use this data converter programmatically via our API:
+                        </p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {'GET /api/data-converter?action=formatJSON&input={"key":"value"}'}
+                        </pre>
+                        <p className="tw-mt-4">
+                            Available actions: formatJSON, minifyJSON, encodeBase64, decodeBase64,
+                            encodeURL, decodeURL
+                        </p>
+                        <p className="tw-mt-4">
+                            The input parameter should be URL-encoded. For example:
+                        </p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            /api/data-converter?action=encodeBase64&input=Hello%20World
+                        </pre>
+                        <p className="tw-mt-4">Example response:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {`{
+    "result": "SGVsbG8gV29ybGQ="
+}`}
+                        </pre>
+                    </CardContent>
+                </Card>
             </div>
             <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
                 <p>&copy; 2023 InstantTools. All rights reserved.</p>
