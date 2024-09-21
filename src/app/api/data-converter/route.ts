@@ -34,7 +34,7 @@ export async function GET(request: Request) {
                 return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
         }
         return NextResponse.json({ result });
-    } catch (error) {
+    } catch {
         return NextResponse.json({ error: 'Invalid input or processing error' }, { status: 400 });
     }
 }

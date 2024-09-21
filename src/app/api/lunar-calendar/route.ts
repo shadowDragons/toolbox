@@ -13,7 +13,8 @@ export async function GET(request: Request) {
     try {
         let result;
         if (action === 'solarToLunar') {
-            const solar = Solar.fromYmd(date);
+            const [year, month, day] = date.split('-').map(Number);
+            const solar = Solar.fromYmd(year, month, day);
             const lunar = solar.getLunar();
             result = {
                 lunarDate: `${lunar.getYear()}-${lunar.getMonth()}-${lunar.getDay()}`,
@@ -26,7 +27,10 @@ export async function GET(request: Request) {
         } else if (action === 'lunarToSolar') {
             const [year, month, day] = date.split('-').map(Number);
             const isLeap = searchParams.get('isLeap') === 'true';
-            const lunar = Lunar.fromYmd(year, month, day, isLeap);
+            const lunar = Lunar.fromYmd(year, month, day);
+            if (isLeap) {
+                lunar.setLeapMonth(true);
+            }
             const solar = lunar.getSolar();
             result = {
                 solarDate: solar.toYmd(),
@@ -44,7 +48,7 @@ export async function GET(request: Request) {
             throw new Error('Invalid action');
         }
         return NextResponse.json(result);
-    } catch (error) {
+    } catch {
         return NextResponse.json({ error: 'Invalid date or processing error' }, { status: 400 });
     }
 }

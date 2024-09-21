@@ -1,8 +1,13 @@
-import { FC, PropsWithChildren, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
-const AppLayout: FC<PropsWithChildren<{ modal: ReactNode }>> = ({ children, modal }) => (
-    <>
-        <div className="tw-app-layout">{children}</div>
-    </>
-);
-export default AppLayout;
+interface AppLayoutProps {
+    children: ReactNode;
+}
+
+export default function AppLayout({ children }: AppLayoutProps) {
+    return (
+        <>
+            <div className="tw-app-layout">{children}</div>
+        </>
+    );
+}

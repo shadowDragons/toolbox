@@ -21,7 +21,8 @@ function evaluateExpression(expression: string): number {
     }
 
     // Function to evaluate expressions within parentheses
-    function evaluateParentheses(expr: string): number {
+    function evaluateParentheses(originalExpr: string): number {
+        let expr = originalExpr;
         while (expr.includes('(')) {
             expr = expr.replace(/\(([^()]+)\)/g, (_, subExpr) =>
                 evaluateParentheses(subExpr).toString(),
