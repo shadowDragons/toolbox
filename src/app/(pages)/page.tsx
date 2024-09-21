@@ -29,12 +29,17 @@ import {
 
 const tools = [
     {
-        name: 'Quick Search',
+        name: '计算器',
         description: 'Find anything instantly',
         icon: Search,
         href: '/tools/calculator',
     },
-    { name: 'Task Planner', description: 'Organize your day efficiently', icon: Calendar },
+    {
+        name: '数据转换',
+        description: 'Organize your day efficiently',
+        icon: Calendar,
+        href: '/tools/data-converter',
+    },
     { name: 'Pomodoro Timer', description: 'Boost focus & productivity', icon: Clock },
     { name: 'Kanban Board', description: 'Visualize your workflow', icon: Kanban },
     { name: 'Note Taking', description: 'Capture your thoughts quickly', icon: FileText },
