@@ -1,20 +1,4 @@
-import {
-    Search,
-    Calendar,
-    Clock,
-    FileText,
-    Kanban,
-    BarChart,
-    Zap,
-    Clipboard,
-    Calculator,
-    Bookmark,
-    Mail,
-    Paperclip,
-    Pen,
-    Globe,
-    Headphones,
-} from 'lucide-react';
+import { Search, Calendar, Clock, FileText, Kanban } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -57,20 +41,6 @@ const tools = [
         description: 'Capture your thoughts quickly',
         icon: FileText,
         href: '/tools/lunar-calendar',
-    },
-    { name: 'Analytics Dashboard', description: 'Track your productivity', icon: BarChart },
-    { name: 'Quick Actions', description: 'Perform common tasks instantly', icon: Zap },
-    { name: 'Clipboard Manager', description: 'Manage your copied items', icon: Clipboard },
-    { name: 'Calculator', description: 'Perform quick calculations', icon: Calculator },
-    { name: 'Bookmark Manager', description: 'Organize your web resources', icon: Bookmark },
-    { name: 'Email Templates', description: 'Quickly draft common emails', icon: Mail },
-    { name: 'File Converter', description: 'Convert between file formats', icon: Paperclip },
-    { name: 'Markdown Editor', description: 'Write and preview markdown', icon: Pen },
-    { name: 'Language Translator', description: 'Translate text on the fly', icon: Globe },
-    {
-        name: 'White Noise Generator',
-        description: 'Improve focus with ambient sounds',
-        icon: Headphones,
     },
 ];
 
