@@ -70,6 +70,26 @@ export default function ByteConverterPage() {
                         </div>
                     </CardContent>
                 </Card>
+                <Card className="tw-max-w-2xl tw-mx-auto tw-mt-8">
+                    <CardHeader>
+                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
+                            <span>API Usage</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="tw-mb-4">
+                            You can also use this converter programmatically via our API:
+                        </p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            GET /api/byte-converter?input=1024KB
+                        </pre>
+                        <p className="tw-mt-4">
+                            This will return a JSON object with conversions to all units. The input
+                            parameter should be in the format "value unit" (e.g., "1024KB", "1.5MB",
+                            "500B"). The unit is case-insensitive.
+                        </p>
+                    </CardContent>
+                </Card>
             </div>
             <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
                 <p>&copy; 2023 InstantTools. All rights reserved.</p>
