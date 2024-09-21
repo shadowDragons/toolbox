@@ -12,7 +12,7 @@
         "lint:es": "next lint --fix",
         "lint:style": "stylelint \"**/*.css\" --fix --cache --cache-location node_modules/.cache/stylelint/",
         "------------------ ui command": "----",
-        "addsc": "pnpm dlx shadcn-ui@latest add -c ./src/app"
+        "addsc": "pnpm dlx shadcn-ui@0.8.0 add -c ./src/app"
     },
     "dependencies": {
         "@faker-js/faker": "^8.4.1",
@@ -26,6 +26,7 @@
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "lodash": "^4.17.21",
+        "lucide-react": "^0.445.0",
         "micromatch": "^4.0.7",
         "next": "14.2.5",
         "prisma-paginate": "^5.2.1",
