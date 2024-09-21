@@ -166,6 +166,33 @@ export default function CalculatorPage() {
                         </Button>
                     </CardContent>
                 </Card>
+                <Card className="tw-max-w-md tw-mx-auto tw-mt-8">
+                    <CardHeader>
+                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
+                            <span>API Usage</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="tw-mb-4">
+                            You can also use this calculator programmatically via our API:
+                        </p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            GET https://instanttools.com/api/calculator?expression=(5%2B3)*2
+                        </pre>
+                        <p className="tw-mt-4">
+                            This will return a JSON object with the result. The expression parameter
+                            can include complex calculations with parentheses and multiple
+                            operators. Use URL encoding for special characters (e.g., '+' becomes
+                            '%2B').
+                        </p>
+                        <p className="tw-mt-4">Example response:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {`{
+    "result": "16"
+}`}
+                        </pre>
+                    </CardContent>
+                </Card>
             </div>
             <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
                 <p>&copy; 2023 InstantTools. All rights reserved.</p>
