@@ -1,34 +1,35 @@
 import { NextResponse } from 'next/server';
 
-const mockChineseToEnglish: { [key: string]: string } = {
-    你好: 'Hello',
-    世界: 'World',
-    如何使用: 'How to use',
-    翻译: 'Translate',
-};
+const TRANSLATE_API_URL = 'https://translate.flowx-studio.com/translate';
 
-const mockEnglishToChinese: { [key: string]: string } = {
-    Hello: '你好',
-    World: '世界',
-    'How to use': '如何使用',
-    Translate: '翻译',
-};
+export async function POST(request: Request) {
+    const { text, from, to } = await request.json();
 
-const mockTranslate = (text: string, from: string, to: string) => {
-    if (from === 'zh' && to === 'en') {
-        return text
-            .split(' ')
-            .map((word) => mockChineseToEnglish[word] || word)
-            .join(' ');
+    if (!text || !from || !to) {
+        return NextResponse.json({ error: 'Missing parameters' }, { status: 400 });
     }
-    if (from === 'en' && to === 'zh') {
-        return text
-            .split(' ')
-            .map((word) => mockEnglishToChinese[word] || word)
-            .join('');
+
+    const response = await fetch(TRANSLATE_API_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            text,
+            source_lang: from,
+            target_lang: to,
+        }),
+    });
+
+    if (!response.ok) {
+        return NextResponse.json({ error: 'Translation API error' }, { status: response.status });
     }
-    return text; // 如果语言对不匹配,返回原文
-};
+
+    const data = await response.json();
+    const translatedText = data.data;
+
+    return NextResponse.json({ translatedText });
+}
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
@@ -40,6 +41,24 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: 'Missing parameters' }, { status: 400 });
     }
 
-    const translatedText = mockTranslate(text, from, to);
+    const response = await fetch(TRANSLATE_API_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            text,
+            source_lang: from,
+            target_lang: to,
+        }),
+    });
+
+    if (!response.ok) {
+        return NextResponse.json({ error: 'Translation API error' }, { status: response.status });
+    }
+
+    const data = await response.json();
+    const translatedText = data.data;
+
     return NextResponse.json({ translatedText });
 }

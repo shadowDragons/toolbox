@@ -52,13 +52,31 @@ export default function TranslatorPage() {
     const [fromLang, setFromLang] = useState('zh');
     const [toLang, setToLang] = useState('en');
 
-    const handleTranslate = () => {
+    const handleTranslate = async () => {
         if (inputText.trim() === '') {
             setOutputText('请输入要翻译的文本');
             return;
         }
-        const result = mockTranslate(inputText, fromLang, toLang);
-        setOutputText(result);
+
+        const response = await fetch('/api/translator', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text: inputText,
+                from: fromLang,
+                to: toLang,
+            }),
+        });
+
+        if (!response.ok) {
+            setOutputText('翻译失败，请重试');
+            return;
+        }
+
+        const data = await response.json();
+        setOutputText(data.translatedText);
     };
 
     const switchLanguages = () => {
@@ -130,13 +148,22 @@ export default function TranslatorPage() {
                             You can also use this translator programmatically via our API:
                         </p>
                         <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            GET /api/translator?text=你好&from=zh&to=en
+                            POST /api/translator
                         </pre>
                         <p className="tw-mt-4">
-                            This will return a JSON object with the translated text. The text
-                            parameter should be the text to translate, and the from and to
-                            parameters should be the source and target languages, respectively.
+                            This will return a JSON object with the translated text. The request
+                            body should be a JSON object with the text to translate, and the from
+                            and to parameters should be the source and target languages,
+                            respectively.
                         </p>
+                        <p className="tw-mt-4">Example request:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {`{
+  "text": "你好",
+  "from": "zh",
+  "to": "en"
+}`}
+                        </pre>
                         <p className="tw-mt-4">Example response:</p>
                         <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
                             {`{
