@@ -14,38 +14,6 @@ import {
 } from '@/app/_components/shadcn/select';
 import { Textarea } from '@/app/_components/shadcn/textarea';
 
-// 模拟翻译函数
-const mockTranslate = (text: string, from: string, to: string) => {
-    // 这里应该是实际的翻译API调用
-    // 为了演示,我们只是简单地返回一个模拟的翻译结果
-    const mockChineseToEnglish: { [key: string]: string } = {
-        你好: 'Hello',
-        世界: 'World',
-        如何使用: 'How to use',
-        翻译: 'Translate',
-    };
-    const mockEnglishToChinese: { [key: string]: string } = {
-        Hello: '你好',
-        World: '世界',
-        'How to use': '如何使用',
-        Translate: '翻译',
-    };
-
-    if (from === 'zh' && to === 'en') {
-        return text
-            .split(' ')
-            .map((word) => mockChineseToEnglish[word] || word)
-            .join(' ');
-    }
-    if (from === 'en' && to === 'zh') {
-        return text
-            .split(' ')
-            .map((word) => mockEnglishToChinese[word] || word)
-            .join('');
-    }
-    return text; // 如果语言对不匹配,返回原文
-};
-
 export default function TranslatorPage() {
     const [inputText, setInputText] = useState('');
     const [outputText, setOutputText] = useState('');
