@@ -42,6 +42,12 @@ const tools = [
         icon: FileText,
         href: '/tools/lunar-calendar',
     },
+    {
+        name: '进制转换',
+        description: 'Capture your thoughts quickly',
+        icon: FileText,
+        href: '/tools/number-converter',
+    },
 ];
 
 export default function HomePage() {
