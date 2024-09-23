@@ -48,6 +48,12 @@ const tools = [
         icon: FileText,
         href: '/tools/number-converter',
     },
+    {
+        name: '中英翻译',
+        description: 'Capture your thoughts quickly',
+        icon: FileText,
+        href: '/tools/translator',
+    },
 ];
 
 export default function HomePage() {
