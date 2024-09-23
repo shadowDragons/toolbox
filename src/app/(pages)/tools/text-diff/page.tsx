@@ -40,6 +40,95 @@ export default function TextDiffPage() {
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
                     Text Difference Comparison
                 </h1>
+                <Card className="tw-max-w-4xl tw-mx-auto tw-mt-8">
+                    <CardHeader>
+                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
+                            <span>API Usage</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="tw-mb-4">
+                            You can also use this text diff tool programmatically via our API:
+                        </p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            GET
+                            /api/text-diff?oldText=Hello%2C%20world!&newText=Hello%2C%20everyone!
+                        </pre>
+                        <p className="tw-mt-4">
+                            This will return a JSON object with the diff result. The oldText and
+                            newText parameters should be URL-encoded.
+                        </p>
+                        <p className="tw-mt-4">Example response:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {`{
+  "diffResult": [
+    {
+      "value": "Hello, ",
+      "added": undefined,
+      "removed": undefined
+    },
+    {
+      "value": "world",
+      "added": undefined,
+      "removed": true
+    },
+    {
+      "value": "everyone",
+      "added": true,
+      "removed": undefined
+    },
+    {
+      "value": "!",
+      "added": undefined,
+      "removed": undefined
+    }
+  ]
+}`}
+                        </pre>
+                        <p className="tw-mt-4">You can also use the POST method:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            POST /api/text-diff
+                        </pre>
+                        <p className="tw-mt-4">
+                            This will return a JSON object with the diff result. The request body
+                            should be a JSON object with the oldText and newText parameters.
+                        </p>
+                        <p className="tw-mt-4">Example request:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {`{
+  "oldText": "Hello, world!",
+  "newText": "Hello, everyone!"
+}`}
+                        </pre>
+                        <p className="tw-mt-4">Example response:</p>
+                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
+                            {`{
+  "diffResult": [
+    {
+      "value": "Hello, ",
+      "added": undefined,
+      "removed": undefined
+    },
+    {
+      "value": "world",
+      "added": undefined,
+      "removed": true
+    },
+    {
+      "value": "everyone",
+      "added": true,
+      "removed": undefined
+    },
+    {
+      "value": "!",
+      "added": undefined,
+      "removed": undefined
+    }
+  ]
+}`}
+                        </pre>
+                    </CardContent>
+                </Card>
                 <Card className="tw-max-w-4xl tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">

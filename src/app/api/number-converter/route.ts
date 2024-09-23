@@ -20,11 +20,17 @@ const convertBase = (num: string, fromBase: number, toBase: number): string => {
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
-    const input = searchParams.get('input');
-    const fromBase = parseInt(searchParams.get('fromBase') || '10');
+    const inputParam = searchParams.get('input');
+
+    if (!inputParam) {
+        return NextResponse.json({ error: 'Missing input parameter' }, { status: 400 });
+    }
+
+    const [input, fromBaseStr] = inputParam.split(':');
+    const fromBase = parseInt(fromBaseStr);
 
     if (!input || isNaN(fromBase)) {
-        return NextResponse.json({ error: 'Missing or invalid input parameters' }, { status: 400 });
+        return NextResponse.json({ error: 'Invalid input parameter format' }, { status: 400 });
     }
 
     const results: Record<number, string> = {};

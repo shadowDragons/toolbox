@@ -137,12 +137,11 @@ export default function NumberConverterPage() {
                             API:
                         </p>
                         <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            GET /api/number-converter?input=1010&fromBase=2
+                            GET /api/number-converter?input=1010:2
                         </pre>
                         <p className="tw-mt-4">
                             This will return a JSON object with conversions to all bases. The input
-                            parameter should be the number to convert, and the fromBase parameter
-                            should be the base of the input number.
+                            parameter should be in the format "number:fromBase".
                         </p>
                         <p className="tw-mt-4">Example response:</p>
                         <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
