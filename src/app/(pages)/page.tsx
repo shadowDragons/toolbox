@@ -1,4 +1,4 @@
-import { Search, Calendar, Clock, FileText, Kanban } from 'lucide-react';
+import { Search, Calendar, FileText, Kanban } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -23,12 +23,6 @@ const tools = [
         description: 'Organize your day efficiently',
         icon: Calendar,
         href: '/tools/data-converter',
-    },
-    {
-        name: '文本对比',
-        description: 'Boost focus & productivity',
-        icon: Clock,
-        href: '/tools/text-diff',
     },
     {
         name: '字节转换',
