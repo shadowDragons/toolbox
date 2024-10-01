@@ -48,6 +48,12 @@ const tools = [
         icon: FileText,
         href: '/tools/translator',
     },
+    {
+        name: '时间戳转换',
+        description: 'Capture your thoughts quickly',
+        icon: FileText,
+        href: '/tools/timestamp-converter',
+    },
 ];
 
 export default function HomePage() {
