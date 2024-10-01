@@ -54,6 +54,12 @@ const tools = [
         icon: FileText,
         href: '/tools/timestamp-converter',
     },
+    {
+        name: 'IP查询',
+        description: 'Capture your thoughts quickly',
+        icon: FileText,
+        href: '/tools/ip-lookup',
+    },
 ];
 
 export default function HomePage() {
