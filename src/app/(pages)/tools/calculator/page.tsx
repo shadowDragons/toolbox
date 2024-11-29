@@ -86,13 +86,13 @@ export default function CalculatorPage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    Calculator
+                    计算器
                 </h1>
                 <Card className="tw-max-w-md tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
                             <Calculator className="tw-h-6 tw-w-6 tw-text-blue-500" />
-                            <span>Simple Calculator</span>
+                            <span>简单计算器</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -162,30 +162,26 @@ export default function CalculatorPage() {
                             className="tw-w-full tw-mt-2"
                             variant="destructive"
                         >
-                            Clear
+                            清除
                         </Button>
                     </CardContent>
                 </Card>
                 <Card className="tw-max-w-md tw-mx-auto tw-mt-8">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
-                            <span>API Usage</span>
+                            <span>API 使用说明</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className="tw-mb-4">
-                            You can also use this calculator programmatically via our API:
-                        </p>
+                        <p className="tw-mb-4">您也可以通过我们的API以编程方式使用此计算器：</p>
                         <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
                             GET https://instanttools.com/api/calculator?expression=(5%2B3)*2
                         </pre>
                         <p className="tw-mt-4">
-                            This will return a JSON object with the result. The expression parameter
-                            can include complex calculations with parentheses and multiple
-                            operators. Use URL encoding for special characters (e.g., '+' becomes
-                            '%2B').
+                            这将返回一个包含计算结果的JSON对象。表达式参数可以包含复杂的计算，
+                            支持括号和多个运算符。请使用URL编码处理特殊字符（例如，'+'需要编码为'%2B'）。
                         </p>
-                        <p className="tw-mt-4">Example response:</p>
+                        <p className="tw-mt-4">示例响应：</p>
                         <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
                             {`{
     "result": "16"
@@ -195,7 +191,7 @@ export default function CalculatorPage() {
                 </Card>
             </div>
             <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 InstantTools. All rights reserved.</p>
+                <p>&copy; 2023 即时工具集. 保留所有权利。</p>
             </footer>
         </div>
     );

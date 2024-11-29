@@ -14,49 +14,49 @@ import {
 const tools = [
     {
         name: '计算器',
-        description: 'Find anything instantly',
+        description: '简单方便的科学计算器',
         icon: Search,
         href: '/tools/calculator',
     },
     {
         name: '数据转换',
-        description: 'Organize your day efficiently',
+        description: '支持JSON、Base64和URL编解码',
         icon: Calendar,
         href: '/tools/data-converter',
     },
     {
         name: '字节转换',
-        description: 'Visualize your workflow',
+        description: 'KB、MB、GB等单位快速转换',
         icon: Kanban,
         href: '/tools/byte-converter',
     },
     {
         name: '农历转换',
-        description: 'Capture your thoughts quickly',
+        description: '公历与农历日期互转工具',
         icon: FileText,
         href: '/tools/lunar-calendar',
     },
     {
         name: '进制转换',
-        description: 'Capture your thoughts quickly',
+        description: '二进制、八进制、十进制、十六进制转换',
         icon: FileText,
         href: '/tools/number-converter',
     },
     {
         name: '中英翻译',
-        description: 'Capture your thoughts quickly',
+        description: '中英文本快速互译工具',
         icon: FileText,
         href: '/tools/translator',
     },
     {
         name: '时间戳转换',
-        description: 'Capture your thoughts quickly',
+        description: '时间戳与日期时间格式互转',
         icon: FileText,
         href: '/tools/timestamp-converter',
     },
     {
         name: 'IP查询',
-        description: 'Capture your thoughts quickly',
+        description: 'IP地址归属地查询工具',
         icon: FileText,
         href: '/tools/ip-lookup',
     },
@@ -67,7 +67,7 @@ export default function HomePage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    Instant Efficiency Tools
+                    字节在线工具站
                 </h1>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-6 sm:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4">
                     {tools.map((tool, index) => (
