@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const TRANSLATE_API_URL = 'https://translate.byte.ink/translate';
+const TRANSLATE_API_URL = 'https://translate.tool.vin/translate';
 
 export async function POST(request: Request) {
     const { text, from, to } = await request.json();
