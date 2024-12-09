@@ -129,41 +129,29 @@ export default function IPLookupPage() {
                     </CardContent>
                 </Card>
 
-                <Card className="tw-max-w-2xl tw-mx-auto tw-mt-8">
-                    <CardHeader>
-                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
-                            <span>API 使用说明</span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="tw-mb-4">
-                            您也可以通过我们的API以编程方式使用此IP地址查询工具：
-                        </p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            GET /api/ip-lookup?ip=8.8.8.8
-                        </pre>
-                        <p className="tw-mt-4">参数说明：</p>
-                        <ul className="tw-list-disc tw-list-inside tw-mt-2">
-                            <li>ip: 要查询的IP地址（可选，如果不提供则查询本机IP）</li>
-                        </ul>
-                        <p className="tw-mt-4">示例响应：</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            {`{
-    "ip": "8.8.8.8",
-    "address": "美国, 加利福尼亚州, 山景城",
-    "isDomain": 0,
-    "latitude": 37.386,
-    "longitude": -122.0838,
-    "isp": "Google LLC",
-    "timezone": "UTC-8"
-}`}
-                        </pre>
-                    </CardContent>
-                </Card>
+                {/* API使用说明 */}
+                {/* 
+                API 使用说明:
+                - 端点: GET /api/ip-lookup
+                - 参数: 
+                    - type: 查询类型 (0: 本机IP, 1: 指定IP)
+                    - ip: 要查询的IP地址（当type=1时必填）
+                
+                示例请求:
+                GET /api/ip-lookup?ip=8.8.8.8
+
+                示例响应:
+                {
+                    "ip": "8.8.8.8",
+                    "address": "美国, 加利福尼亚州, 山景城",
+                    "isDomain": 0,
+                    "latitude": 37.386,
+                    "longitude": -122.0838,
+                    "isp": "Google LLC",
+                    "timezone": "UTC-8"
+                }
+                */}
             </div>
-            <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 InstantTools. All rights reserved.</p>
-            </footer>
         </div>
     );
 }

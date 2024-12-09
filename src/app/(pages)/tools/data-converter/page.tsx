@@ -148,40 +148,20 @@ export default function DataConverterPage() {
                         </Tabs>
                     </CardContent>
                 </Card>
-                <Card className="tw-max-w-4xl tw-mx-auto tw-mt-8">
-                    <CardHeader>
-                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
-                            <span>API 使用说明</span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="tw-mb-4">
-                            您也可以通过我们的API以编程方式使用此数据转换工具：
-                        </p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            {'GET /api/data-converter?action=formatJSON&input={"key":"value"}'}
-                        </pre>
-                        <p className="tw-mt-4">
-                            可用的操作：formatJSON（格式化JSON）, minifyJSON（压缩JSON）,
-                            encodeBase64（Base64编码）, decodeBase64（Base64解码）,
-                            encodeURL（URL编码）, decodeURL（URL解码）
-                        </p>
-                        <p className="tw-mt-4">输入参数需要进行 URL 编码。例如：</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            /api/data-converter?action=encodeBase64&input=Hello%20World
-                        </pre>
-                        <p className="tw-mt-4">响应示例：</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            {`{
-    "result": "SGVsbG8gV29ybGQ="
-}`}
-                        </pre>
-                    </CardContent>
-                </Card>
+                {/* API使用说明:
+                - 端点: GET /api/data-converter
+                - 参数: 
+                    action: formatJSON | minifyJSON | encodeBase64 | decodeBase64 | encodeURL | decodeURL
+                    input: 需要转换的数据（需要URL编码）
+                - 示例: 
+                    GET /api/data-converter?action=formatJSON&input={"key":"value"}
+                    GET /api/data-converter?action=encodeBase64&input=Hello%20World
+                - 响应格式:
+                    {
+                        "result": "转换后的结果"
+                    }
+                */}
             </div>
-            <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 即时工具集. 保留所有权利。</p>
-            </footer>
         </div>
     );
 }

@@ -70,27 +70,16 @@ export default function ByteConverterPage() {
                         </div>
                     </CardContent>
                 </Card>
-                <Card className="tw-max-w-2xl tw-mx-auto tw-mt-8">
-                    <CardHeader>
-                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
-                            <span>API 使用说明</span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="tw-mb-4">您也可以通过我们的API以编程方式使用此转换工具：</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            GET /api/byte-converter?input=1024KB
-                        </pre>
-                        <p className="tw-mt-4">
-                            这将返回一个包含所有单位转换结果的JSON对象。输入参数应采用"值
-                            单位"的格式 （例如："1024KB"、"1.5MB"、"500B"）。单位大小写不敏感。
-                        </p>
-                    </CardContent>
-                </Card>
+                {/* API使用说明 Card 移除，改为注释形式记录 */}
+                {/* 
+                API 使用说明:
+                - 端点: GET /api/byte-converter
+                - 参数: input=1024KB
+                - 格式: 值+单位，如 "1024KB"、"1.5MB"、"500B"
+                - 单位大小写不敏感
+                - 返回: JSON对象，包含所有单位的转换结果
+                */}
             </div>
-            <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 即时工具集. 保留所有权利。</p>
-            </footer>
         </div>
     );
 }

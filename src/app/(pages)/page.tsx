@@ -1,4 +1,13 @@
-import { Search, Calendar, FileText, Kanban } from 'lucide-react';
+import {
+    Calculator,
+    FileJson,
+    HardDrive,
+    Calendar,
+    Binary,
+    Languages,
+    Clock,
+    Network,
+} from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -15,49 +24,49 @@ const tools = [
     {
         name: '计算器',
         description: '简单方便的科学计算器',
-        icon: Search,
+        icon: Calculator,
         href: '/tools/calculator',
     },
     {
         name: '数据转换',
         description: '支持JSON、Base64和URL编解码',
-        icon: Calendar,
+        icon: FileJson,
         href: '/tools/data-converter',
     },
     {
         name: '字节转换',
         description: 'KB、MB、GB等单位快速转换',
-        icon: Kanban,
+        icon: HardDrive,
         href: '/tools/byte-converter',
     },
     {
         name: '农历转换',
         description: '公历与农历日期互转工具',
-        icon: FileText,
+        icon: Calendar,
         href: '/tools/lunar-calendar',
     },
     {
         name: '进制转换',
         description: '二进制、八进制、十进制、十六进制转换',
-        icon: FileText,
+        icon: Binary,
         href: '/tools/number-converter',
     },
     {
         name: '中英翻译',
         description: '中英文本快速互译工具',
-        icon: FileText,
+        icon: Languages,
         href: '/tools/translator',
     },
     {
         name: '时间戳转换',
         description: '时间戳与日期时间格式互转',
-        icon: FileText,
+        icon: Clock,
         href: '/tools/timestamp-converter',
     },
     {
         name: 'IP查询',
         description: 'IP地址归属地查询工具',
-        icon: FileText,
+        icon: Network,
         href: '/tools/ip-lookup',
     },
 ];
@@ -83,16 +92,13 @@ export default function HomePage() {
                             </CardContent>
                             <CardFooter>
                                 <Button className="tw-w-full" asChild>
-                                    <Link href={tool.href || '#'}>Use Now</Link>
+                                    <Link href={tool.href || '#'}>现在使用</Link>
                                 </Button>
                             </CardFooter>
                         </Card>
                     ))}
                 </div>
             </div>
-            <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 InstantTools. All rights reserved.</p>
-            </footer>
         </div>
     );
 }

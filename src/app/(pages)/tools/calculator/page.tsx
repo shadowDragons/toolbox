@@ -1,7 +1,7 @@
 'use client';
 
 import { Calculator } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/app/_components/shadcn/card';
@@ -81,6 +81,46 @@ export default function CalculatorPage() {
         setOperator('');
         setWaitingForOperand(true);
     };
+
+    // Add keyboard event handler
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            // Prevent default behavior for calculator keys
+            if (event.key.match(/[0-9]|[\+\-\*\/\.\=]|Enter|Backspace|Escape/)) {
+                event.preventDefault();
+            }
+
+            // Handle number keys and numpad
+            if (event.key.match(/[0-9]/)) {
+                inputDigit(event.key);
+            }
+            // Handle operators
+            else if (event.key.match(/[\+\-\*\/]/)) {
+                inputOperator(event.key);
+            }
+            // Handle decimal point
+            else if (event.key === '.') {
+                inputDecimal();
+            }
+            // Handle equals and enter
+            else if (event.key === '=' || event.key === 'Enter') {
+                calculateResult();
+            }
+            // Handle escape for clear
+            else if (event.key === 'Escape') {
+                clearDisplay();
+            }
+            // Handle backspace
+            else if (event.key === 'Backspace') {
+                if (display !== '0' && !waitingForOperand) {
+                    setDisplay(display.length === 1 ? '0' : display.slice(0, -1));
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [display, waitingForOperand]); // Add other dependencies if needed
 
     return (
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
@@ -166,33 +206,17 @@ export default function CalculatorPage() {
                         </Button>
                     </CardContent>
                 </Card>
-                <Card className="tw-max-w-md tw-mx-auto tw-mt-8">
-                    <CardHeader>
-                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
-                            <span>API 使用说明</span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="tw-mb-4">您也可以通过我们的API以编程方式使用此计算器：</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            GET https://instanttools.com/api/calculator?expression=(5%2B3)*2
-                        </pre>
-                        <p className="tw-mt-4">
-                            这将返回一个包含计算结果的JSON对象。表达式参数可以包含复杂的计算，
-                            支持括号和多个运算符。请使用URL编码处理特殊字符（例如，'+'需要编码为'%2B'）。
-                        </p>
-                        <p className="tw-mt-4">示例响应：</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            {`{
-    "result": "16"
-}`}
-                        </pre>
-                    </CardContent>
-                </Card>
+                {/* API使用说明 Card 移除，改为注释形式记录 */}
+                {/* 
+                API 使用说明:
+                - 端点: GET /api/calculator
+                - 参数: expression=(5+3)*2
+                - 格式: URL编码的数学表达式
+                - 支持: 加减乘除和括号运算
+                - 特殊字符需URL编码 (例如: + 编码为 %2B)
+                - 返回: JSON对象 { "result": "计算结果" }
+                */}
             </div>
-            <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 即时工具集. 保留所有权利。</p>
-            </footer>
         </div>
     );
 }

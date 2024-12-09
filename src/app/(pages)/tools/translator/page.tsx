@@ -105,45 +105,26 @@ export default function TranslatorPage() {
                         </div>
                     </CardContent>
                 </Card>
-                <Card className="tw-max-w-3xl tw-mx-auto tw-mt-8">
-                    <CardHeader>
-                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
-                            <span>API Usage</span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="tw-mb-4">
-                            You can also use this translator programmatically via our API:
-                        </p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            POST /api/translator
-                        </pre>
-                        <p className="tw-mt-4">
-                            This will return a JSON object with the translated text. The request
-                            body should be a JSON object with the text to translate, and the from
-                            and to parameters should be the source and target languages,
-                            respectively.
-                        </p>
-                        <p className="tw-mt-4">Example request:</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            {`{
-  "text": "你好",
-  "from": "zh",
-  "to": "en"
-}`}
-                        </pre>
-                        <p className="tw-mt-4">Example response:</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            {`{
-  "translatedText": "Hello"
-}`}
-                        </pre>
-                    </CardContent>
-                </Card>
+                {/* API使用说明 Card 移除，改为注释形式记录 */}
+                {/* 
+                API 使用说明:
+                - 端点: POST /api/translator
+                - 请求体 (JSON): 
+                    - text: 要翻译的文本
+                    - from: 源语言代码 (zh/en)
+                    - to: 目标语言代码 (zh/en)
+                - 示例请求: 
+                    {
+                        "text": "你好",
+                        "from": "zh",
+                        "to": "en"
+                    }
+                - 示例响应:
+                    {
+                        "translatedText": "Hello"
+                    }
+                */}
             </div>
-            <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 InstantTools. All rights reserved.</p>
-            </footer>
         </div>
     );
 }

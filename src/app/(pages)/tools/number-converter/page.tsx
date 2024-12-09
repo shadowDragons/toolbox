@@ -125,43 +125,24 @@ export default function NumberConverterPage() {
                         </div>
                     </CardContent>
                 </Card>
-                <Card className="tw-max-w-4xl tw-mx-auto tw-mt-8">
-                    <CardHeader>
-                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
-                            <span>API Usage</span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="tw-mb-4">
-                            You can also use this number base converter programmatically via our
-                            API:
-                        </p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            GET /api/number-converter?input=1010:2
-                        </pre>
-                        <p className="tw-mt-4">
-                            This will return a JSON object with conversions to all bases. The input
-                            parameter should be in the format "number:fromBase".
-                        </p>
-                        <p className="tw-mt-4">Example response:</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            {`{
-    "2": "1010",
-    "8": "12",
-    "10": "10",
-    "16": "a",
-    "32": "a",
-    "36": "a",
-    "58": "a",
-    "62": "a"
-}`}
-                        </pre>
-                    </CardContent>
-                </Card>
+                {/* API使用说明
+                端点: GET /api/number-converter
+                参数: input=<number>:<fromBase>
+                示例: GET /api/number-converter?input=1010:2
+                
+                返回: JSON对象，包含所有进制的转换结果
+                {
+                    "2": "1010",
+                    "8": "12",
+                    "10": "10",
+                    "16": "a",
+                    "32": "a",
+                    "36": "a",
+                    "58": "a",
+                    "62": "a"
+                }
+                */}
             </div>
-            <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 InstantTools. All rights reserved.</p>
-            </footer>
         </div>
     );
 }

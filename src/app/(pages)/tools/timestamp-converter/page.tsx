@@ -178,42 +178,20 @@ export default function TimestampConverterPage() {
                         </div>
                     </CardContent>
                 </Card>
-                <Card className="tw-max-w-2xl tw-mx-auto tw-mt-8">
-                    <CardHeader>
-                        <CardTitle className="tw-flex tw-items-center tw-space-x-2">
-                            <span>API 使用说明</span>
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="tw-mb-4">
-                            您也可以通过我们的API以编程方式使用此时间戳转换工具：
-                        </p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            GET /api/timestamp-converter?action=toTimestamp&input=2023-05-20
-                            15:30:00&unit=seconds
-                        </pre>
-                        <p className="tw-mt-4">
-                            可用的操作：toTimestamp（日期时间转时间戳）,
-                            fromTimestamp（时间戳转日期时间）
-                        </p>
-                        <p className="tw-mt-4">参数说明：</p>
-                        <ul className="tw-list-disc tw-list-inside tw-mt-2">
-                            <li>action: 转换操作（toTimestamp 或 fromTimestamp）</li>
-                            <li>input: 输入值（日期时间字符串或时间戳）</li>
-                            <li>unit: 时间戳单位（seconds 或 milliseconds，默认为 seconds）</li>
-                        </ul>
-                        <p className="tw-mt-4">示例响应：</p>
-                        <pre className="tw-bg-gray-100 tw-p-4 tw-rounded-md tw-overflow-x-auto">
-                            {`{
-    "result": 1684590600
-}`}
-                        </pre>
-                    </CardContent>
-                </Card>
+                {/* API使用说明 Card 移除，改为注释形式记录 */}
+                {/* 
+                API 使用说明:
+                - 端点: GET /api/timestamp-converter
+                - 参数: 
+                    - action: toTimestamp 或 fromTimestamp
+                    - input: 日期时间字符串(YYYY-MM-DD HH:MM:SS)或时间戳
+                    - unit: seconds 或 milliseconds (可选，默认 seconds)
+                - 示例: 
+                    /api/timestamp-converter?action=toTimestamp&input=2023-05-20 15:30:00&unit=seconds
+                    /api/timestamp-converter?action=fromTimestamp&input=1684590600&unit=seconds
+                - 返回: JSON对象，包含转换结果 { "result": 1684590600 }
+                */}
             </div>
-            <footer className="tw-mt-12 tw-text-center tw-text-sm tw-text-gray-500">
-                <p>&copy; 2023 InstantTools. All rights reserved.</p>
-            </footer>
         </div>
     );
 }
