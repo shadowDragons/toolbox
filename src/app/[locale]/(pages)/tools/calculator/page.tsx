@@ -1,6 +1,7 @@
 'use client';
 
 import { Calculator } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -8,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/app/_components/shad
 import { Input } from '@/app/_components/shadcn/input';
 
 export default function CalculatorPage() {
+    const t = useTranslations();
     const [display, setDisplay] = useState('0');
     const [currentValue, setCurrentValue] = useState('');
     const [operator, setOperator] = useState('');
@@ -126,13 +128,13 @@ export default function CalculatorPage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    计算器
+                    {t('Tools.calculator.title')}
                 </h1>
                 <Card className="tw-max-w-md tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
                             <Calculator className="tw-h-6 tw-w-6 tw-text-blue-500" />
-                            <span>简单计算器</span>
+                            <span>{t('Tools.calculator.name')}</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -202,20 +204,10 @@ export default function CalculatorPage() {
                             className="tw-w-full tw-mt-2"
                             variant="destructive"
                         >
-                            清除
+                            {t('Tools.calculator.clear')}
                         </Button>
                     </CardContent>
                 </Card>
-                {/* API使用说明 Card 移除，改为注释形式记录 */}
-                {/* 
-                API 使用说明:
-                - 端点: GET /api/calculator
-                - 参数: expression=(5+3)*2
-                - 格式: URL编码的数学表达式
-                - 支持: 加减乘除和括号运算
-                - 特殊字符需URL编码 (例如: + 编码为 %2B)
-                - 返回: JSON对象 { "result": "计算结果" }
-                */}
             </div>
         </div>
     );

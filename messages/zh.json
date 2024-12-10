@@ -26,7 +26,13 @@
             "encodeBase64": "Base64 编码",
             "decodeBase64": "Base64 解码",
             "encodeUrl": "URL 编码",
-            "decodeUrl": "URL 解码"
+            "decodeUrl": "URL 解码",
+            "jsonInputPlaceholder": "在此输入 JSON",
+            "jsonOutputPlaceholder": "格式化/压缩后的 JSON",
+            "base64InputPlaceholder": "在此输入要进行 Base64 编码/解码的文本",
+            "base64OutputPlaceholder": "编码/解码后的 Base64",
+            "urlInputPlaceholder": "在此输入要进行 URL 编码/解码的文本",
+            "urlOutputPlaceholder": "编码/解码后的 URL"
         },
         "byteConverter": {
             "title": "字节数据转换器",
@@ -35,7 +41,25 @@
         },
         "lunarCalendar": {
             "title": "农历转换",
-            "description": "公历与农历日期互转工具"
+            "description": "公历与农历日期互转工具",
+            "calendar": {
+                "solar": "公历",
+                "lunar": "农历"
+            },
+            "convert": "转换日期",
+            "result": "转换结果",
+            "solarDate": "公历日期",
+            "lunarYear": "农历年",
+            "lunarMonth": "农历月",
+            "lunarDay": "农历日",
+            "yearPlaceholder": "年",
+            "monthPlaceholder": "月",
+            "dayPlaceholder": "日",
+            "isLeapMonth": "是否闰月",
+            "leapOptions": {
+                "true": "是",
+                "false": "否"
+            }
         },
         "numberConverter": {
             "title": "进制转换工具",
@@ -54,14 +78,15 @@
                 "base36": "数字 + 小写字母",
                 "base58": "数字 + 大小写字母, 不包含 0OIl 字符",
                 "base62": "数字 + 大小写字母"
-            }
+            },
+            "inputPlaceholder": "输入要转换的数值"
         },
         "translator": {
             "title": "中英互译工具",
             "name": "中英互译",
             "description": "中英文本快速互译工具",
             "translate": "翻译",
-            "inputPlaceholder": "请输入要翻译的文本",
+            "inputPlaceholder": "请输入要翻译���文本",
             "translateResult": "翻译结果",
             "translateFailed": "翻译失败，请重试",
             "languages": {
@@ -84,7 +109,8 @@
             "convertTypes": {
                 "toTimestamp": "日期时间 → 时间戳",
                 "fromTimestamp": "时间戳 → 日期时间"
-            }
+            },
+            "selectUnit": "选择时间戳单位"
         },
         "ipLookup": {
             "title": "IP地址查询工具",

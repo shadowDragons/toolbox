@@ -1,6 +1,7 @@
 'use client';
 
 import { RefreshCw } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -10,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/_components/shad
 import { Textarea } from '@/app/_components/shadcn/textarea';
 
 export default function DataConverterPage() {
+    const t = useTranslations();
     const [jsonInput, setJsonInput] = useState('');
     const [jsonOutput, setJsonOutput] = useState('');
     const [base64Input, setBase64Input] = useState('');
@@ -22,7 +24,7 @@ export default function DataConverterPage() {
             const formatted = JSON.stringify(JSON.parse(jsonInput), null, 2);
             setJsonOutput(formatted);
         } catch (error) {
-            setJsonOutput('无效的 JSON 格式');
+            setJsonOutput(t('Tools.dataConverter.invalidJson'));
         }
     };
 
@@ -31,7 +33,7 @@ export default function DataConverterPage() {
             const minified = JSON.stringify(JSON.parse(jsonInput));
             setJsonOutput(minified);
         } catch (error) {
-            setJsonOutput('无效的 JSON 格式');
+            setJsonOutput(t('Tools.dataConverter.invalidJson'));
         }
     };
 
@@ -40,7 +42,7 @@ export default function DataConverterPage() {
             const encoded = btoa(base64Input);
             setBase64Output(encoded);
         } catch (error) {
-            setBase64Output('无效的 Base64 编码输入');
+            setBase64Output(t('Tools.dataConverter.invalidBase64Input'));
         }
     };
 
@@ -49,7 +51,7 @@ export default function DataConverterPage() {
             const decoded = atob(base64Input);
             setBase64Output(decoded);
         } catch (error) {
-            setBase64Output('无效的 Base64 格式');
+            setBase64Output(t('Tools.dataConverter.invalidBase64Format'));
         }
     };
 
@@ -58,7 +60,7 @@ export default function DataConverterPage() {
             const encoded = encodeURIComponent(urlInput);
             setUrlOutput(encoded);
         } catch (error) {
-            setUrlOutput('无效的 URL 编码输入');
+            setUrlOutput(t('Tools.dataConverter.invalidUrlInput'));
         }
     };
 
@@ -67,7 +69,7 @@ export default function DataConverterPage() {
             const decoded = decodeURIComponent(urlInput);
             setUrlOutput(decoded);
         } catch (error) {
-            setUrlOutput('无效的 URL 编码格式');
+            setUrlOutput(t('Tools.dataConverter.invalidUrlFormat'));
         }
     };
 
@@ -75,13 +77,13 @@ export default function DataConverterPage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    数据转换工具
+                    {t('Tools.dataConverter.title')}
                 </h1>
                 <Card className="tw-max-w-4xl tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
                             <RefreshCw className="tw-h-6 tw-w-6 tw-text-blue-500" />
-                            <span>数据转换工具集</span>
+                            <span>{t('Tools.dataConverter.title')}</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -94,16 +96,22 @@ export default function DataConverterPage() {
                             <TabsContent value="json">
                                 <div className="tw-space-y-4">
                                     <Textarea
-                                        placeholder="在此输入 JSON"
+                                        placeholder={t('Tools.dataConverter.jsonInputPlaceholder')}
                                         value={jsonInput}
-                                        onChange={(e) => setJsonInput(e.target.value)}
+                                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                                            setJsonInput(e.target.value)
+                                        }
                                     />
                                     <div className="tw-flex tw-space-x-2">
-                                        <Button onClick={formatJSON}>格式化 JSON</Button>
-                                        <Button onClick={minifyJSON}>压缩 JSON</Button>
+                                        <Button onClick={formatJSON}>
+                                            {t('Tools.dataConverter.formatJson')}
+                                        </Button>
+                                        <Button onClick={minifyJSON}>
+                                            {t('Tools.dataConverter.minifyJson')}
+                                        </Button>
                                     </div>
                                     <Textarea
-                                        placeholder="格式化/压缩后的 JSON"
+                                        placeholder={t('Tools.dataConverter.jsonOutputPlaceholder')}
                                         value={jsonOutput}
                                         readOnly
                                     />
@@ -112,16 +120,26 @@ export default function DataConverterPage() {
                             <TabsContent value="base64">
                                 <div className="tw-space-y-4">
                                     <Textarea
-                                        placeholder="在此输入要进行 Base64 编码/解码的文本"
+                                        placeholder={t(
+                                            'Tools.dataConverter.base64InputPlaceholder',
+                                        )}
                                         value={base64Input}
-                                        onChange={(e) => setBase64Input(e.target.value)}
+                                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                                            setBase64Input(e.target.value)
+                                        }
                                     />
                                     <div className="tw-flex tw-space-x-2">
-                                        <Button onClick={encodeBase64}>Base64 编码</Button>
-                                        <Button onClick={decodeBase64}>Base64 解码</Button>
+                                        <Button onClick={encodeBase64}>
+                                            {t('Tools.dataConverter.encodeBase64')}
+                                        </Button>
+                                        <Button onClick={decodeBase64}>
+                                            {t('Tools.dataConverter.decodeBase64')}
+                                        </Button>
                                     </div>
                                     <Textarea
-                                        placeholder="编码/解码后的 Base64"
+                                        placeholder={t(
+                                            'Tools.dataConverter.base64OutputPlaceholder',
+                                        )}
                                         value={base64Output}
                                         readOnly
                                     />
@@ -130,16 +148,22 @@ export default function DataConverterPage() {
                             <TabsContent value="url">
                                 <div className="tw-space-y-4">
                                     <Input
-                                        placeholder="在此输入要进行 URL 编码/解码的文本"
+                                        placeholder={t('Tools.dataConverter.urlInputPlaceholder')}
                                         value={urlInput}
-                                        onChange={(e) => setUrlInput(e.target.value)}
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                            setUrlInput(e.target.value)
+                                        }
                                     />
                                     <div className="tw-flex tw-space-x-2">
-                                        <Button onClick={encodeURL}>URL 编码</Button>
-                                        <Button onClick={decodeURL}>URL 解码</Button>
+                                        <Button onClick={encodeURL}>
+                                            {t('Tools.dataConverter.encodeUrl')}
+                                        </Button>
+                                        <Button onClick={decodeURL}>
+                                            {t('Tools.dataConverter.decodeUrl')}
+                                        </Button>
                                     </div>
                                     <Input
-                                        placeholder="编码/解码后的 URL"
+                                        placeholder={t('Tools.dataConverter.urlOutputPlaceholder')}
                                         value={urlOutput}
                                         readOnly
                                     />

@@ -1,6 +1,7 @@
 'use client';
 
 import { Calculator } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/app/_components/shadcn/card';
@@ -34,6 +35,7 @@ const convertBase = (num: string, fromBase: number, toBase: number): string => {
 };
 
 export default function NumberConverterPage() {
+    const t = useTranslations();
     const [inputBase, setInputBase] = useState(10);
     const [inputValue, setInputValue] = useState('');
     const [results, setResults] = useState<{ [key: number]: string }>({});
@@ -54,20 +56,20 @@ export default function NumberConverterPage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    进制转换工具
+                    {t('Tools.numberConverter.title')}
                 </h1>
                 <Card className="tw-max-w-4xl tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
                             <Calculator className="tw-h-6 tw-w-6 tw-text-blue-500" />
-                            <span>数字进制转换</span>
+                            <span>{t('Tools.numberConverter.name')}</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="tw-space-y-4">
                             <RadioGroup
                                 defaultValue={inputBase.toString()}
-                                onValueChange={(value) => setInputBase(parseInt(value))}
+                                onValueChange={(value) => setInputBase(parseInt(value, 10))}
                                 className="tw-flex tw-flex-wrap tw-gap-4"
                             >
                                 {BASES.map((base) => (
@@ -79,27 +81,36 @@ export default function NumberConverterPage() {
                                             value={base.toString()}
                                             id={`base-${base}`}
                                         />
-                                        <Label htmlFor={`base-${base}`}>{base}进制</Label>
+                                        <Label htmlFor={`base-${base}`}>
+                                            {base}
+                                            {t('Tools.numberConverter.base')}
+                                        </Label>
                                     </div>
                                 ))}
                             </RadioGroup>
 
                             <div className="tw-space-y-2">
-                                <Label htmlFor="input">输入数值</Label>
+                                <Label htmlFor="input">
+                                    {t('Tools.numberConverter.inputValue')}
+                                </Label>
                                 <Input
                                     id="input"
-                                    placeholder="输入要转换的数值"
+                                    placeholder={t('Tools.numberConverter.inputPlaceholder')}
                                     value={inputValue}
-                                    onChange={(e) => setInputValue(e.target.value)}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                        setInputValue(e.target.value)
+                                    }
                                 />
                             </div>
 
                             <Table>
                                 <TableHeader>
                                     <TableRow>
-                                        <TableHead>进制</TableHead>
-                                        <TableHead>结果</TableHead>
-                                        <TableHead>解释</TableHead>
+                                        <TableHead>{t('Tools.numberConverter.base')}</TableHead>
+                                        <TableHead>{t('Tools.numberConverter.result')}</TableHead>
+                                        <TableHead>
+                                            {t('Tools.numberConverter.explanation')}
+                                        </TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -108,15 +119,22 @@ export default function NumberConverterPage() {
                                             <TableCell>{base}</TableCell>
                                             <TableCell>{results[base] || ''}</TableCell>
                                             <TableCell>
-                                                {base === 2 && '二进制'}
-                                                {base === 8 && '八进制'}
-                                                {base === 10 && '十进制'}
-                                                {base === 16 && '十六进制'}
-                                                {base === 32 && '数字 + 大写字母, 不包含 ILOU 字符'}
-                                                {base === 36 && '数字 + 小写字母'}
+                                                {base === 2 &&
+                                                    t('Tools.numberConverter.bases.binary')}
+                                                {base === 8 &&
+                                                    t('Tools.numberConverter.bases.octal')}
+                                                {base === 10 &&
+                                                    t('Tools.numberConverter.bases.decimal')}
+                                                {base === 16 &&
+                                                    t('Tools.numberConverter.bases.hex')}
+                                                {base === 32 &&
+                                                    t('Tools.numberConverter.bases.base32')}
+                                                {base === 36 &&
+                                                    t('Tools.numberConverter.bases.base36')}
                                                 {base === 58 &&
-                                                    '数字 + 大小写字母, 不包含 0OIl 字符'}
-                                                {base === 62 && '数字 + 大小写字母'}
+                                                    t('Tools.numberConverter.bases.base58')}
+                                                {base === 62 &&
+                                                    t('Tools.numberConverter.bases.base62')}
                                             </TableCell>
                                         </TableRow>
                                     ))}
@@ -125,23 +143,6 @@ export default function NumberConverterPage() {
                         </div>
                     </CardContent>
                 </Card>
-                {/* API使用说明
-                端点: GET /api/number-converter
-                参数: input=<number>:<fromBase>
-                示例: GET /api/number-converter?input=1010:2
-                
-                返回: JSON对象，包含所有进制的转换结果
-                {
-                    "2": "1010",
-                    "8": "12",
-                    "10": "10",
-                    "16": "a",
-                    "32": "a",
-                    "36": "a",
-                    "58": "a",
-                    "62": "a"
-                }
-                */}
             </div>
         </div>
     );

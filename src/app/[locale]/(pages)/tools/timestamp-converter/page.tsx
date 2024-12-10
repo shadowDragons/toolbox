@@ -1,6 +1,7 @@
 'use client';
 
 import { Clock, Play, Pause, RefreshCw } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -17,6 +18,7 @@ import {
 } from '@/app/_components/shadcn/select';
 
 export default function TimestampConverterPage() {
+    const t = useTranslations();
     const [currentTimestamp, setCurrentTimestamp] = useState<number>(0);
     const [isRunning, setIsRunning] = useState<boolean>(false);
     const [inputValue, setInputValue] = useState<string>('');
@@ -87,19 +89,21 @@ export default function TimestampConverterPage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    增强型时间戳转换工具
+                    {t('Tools.timestampConverter.title')}
                 </h1>
                 <Card className="tw-max-w-2xl tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
                             <Clock className="tw-h-6 tw-w-6 tw-text-blue-500" />
-                            <span>时间戳转换</span>
+                            <span>{t('Tools.timestampConverter.name')}</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="tw-space-y-4">
                             <div className="tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-text-lg tw-font-semibold">当前Unix时间戳:</div>
+                                <div className="tw-text-lg tw-font-semibold">
+                                    {t('Tools.timestampConverter.currentTimestamp')}:
+                                </div>
                                 <div className="tw-text-xl tw-font-bold tw-text-blue-600">
                                     {currentTimestamp}
                                 </div>
@@ -111,11 +115,13 @@ export default function TimestampConverterPage() {
                                     ) : (
                                         <Play className="tw-h-4 tw-w-4 tw-mr-2" />
                                     )}
-                                    {isRunning ? '停止' : '开始'}
+                                    {isRunning
+                                        ? t('Tools.timestampConverter.stop')
+                                        : t('Tools.timestampConverter.start')}
                                 </Button>
                                 <Button onClick={refreshTimestamp} variant="outline">
                                     <RefreshCw className="tw-h-4 tw-w-4 tw-mr-2" />
-                                    刷新
+                                    {t('Tools.timestampConverter.refresh')}
                                 </Button>
                             </div>
                             <Select
@@ -125,11 +131,17 @@ export default function TimestampConverterPage() {
                                 }
                             >
                                 <SelectTrigger>
-                                    <SelectValue placeholder="选择时间戳单位" />
+                                    <SelectValue
+                                        placeholder={t('Tools.timestampConverter.selectUnit')}
+                                    />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="seconds">秒</SelectItem>
-                                    <SelectItem value="milliseconds">毫秒</SelectItem>
+                                    <SelectItem value="seconds">
+                                        {t('Tools.timestampConverter.units.seconds')}
+                                    </SelectItem>
+                                    <SelectItem value="milliseconds">
+                                        {t('Tools.timestampConverter.units.milliseconds')}
+                                    </SelectItem>
                                 </SelectContent>
                             </Select>
                             <RadioGroup
@@ -141,11 +153,15 @@ export default function TimestampConverterPage() {
                             >
                                 <div className="tw-flex tw-items-center tw-space-x-2">
                                     <RadioGroupItem value="toTimestamp" id="toTimestamp" />
-                                    <Label htmlFor="toTimestamp">日期时间 → 时间戳</Label>
+                                    <Label htmlFor="toTimestamp">
+                                        {t('Tools.timestampConverter.convertTypes.toTimestamp')}
+                                    </Label>
                                 </div>
                                 <div className="tw-flex tw-items-center tw-space-x-2">
                                     <RadioGroupItem value="fromTimestamp" id="fromTimestamp" />
-                                    <Label htmlFor="fromTimestamp">时间戳 → 日期时间</Label>
+                                    <Label htmlFor="fromTimestamp">
+                                        {t('Tools.timestampConverter.convertTypes.fromTimestamp')}
+                                    </Label>
                                 </div>
                             </RadioGroup>
                             <div className="tw-space-y-2">
@@ -178,19 +194,6 @@ export default function TimestampConverterPage() {
                         </div>
                     </CardContent>
                 </Card>
-                {/* API使用说明 Card 移除，改为注释形式记录 */}
-                {/* 
-                API 使用说明:
-                - 端点: GET /api/timestamp-converter
-                - 参数: 
-                    - action: toTimestamp 或 fromTimestamp
-                    - input: 日期时间字符串(YYYY-MM-DD HH:MM:SS)或时间戳
-                    - unit: seconds 或 milliseconds (可选，默认 seconds)
-                - 示例: 
-                    /api/timestamp-converter?action=toTimestamp&input=2023-05-20 15:30:00&unit=seconds
-                    /api/timestamp-converter?action=fromTimestamp&input=1684590600&unit=seconds
-                - 返回: JSON对象，包含转换结果 { "result": 1684590600 }
-                */}
             </div>
         </div>
     );

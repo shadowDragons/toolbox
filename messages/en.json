@@ -26,7 +26,13 @@
 			"encodeBase64": "Base64 Encode",
 			"decodeBase64": "Base64 Decode",
 			"encodeUrl": "URL Encode",
-			"decodeUrl": "URL Decode"
+			"decodeUrl": "URL Decode",
+			"jsonInputPlaceholder": "Enter JSON here",
+			"jsonOutputPlaceholder": "Formatted/Minified JSON",
+			"base64InputPlaceholder": "Enter text for Base64 encoding/decoding",
+			"base64OutputPlaceholder": "Encoded/Decoded Base64",
+			"urlInputPlaceholder": "Enter text for URL encoding/decoding",
+			"urlOutputPlaceholder": "Encoded/Decoded URL"
 		},
 		"byteConverter": {
 			"title": "Byte Data Converter",
@@ -54,7 +60,8 @@
 				"base36": "Numbers + Lowercase letters",
 				"base58": "Numbers + Letters, excluding 0OIl",
 				"base62": "Numbers + Letters"
-			}
+			},
+			"inputPlaceholder": "Enter value to convert"
 		},
 		"translator": {
 			"title": "Chinese-English Translator",
@@ -84,7 +91,8 @@
 			"convertTypes": {
 				"toTimestamp": "Datetime → Timestamp",
 				"fromTimestamp": "Timestamp → Datetime"
-			}
+			},
+			"selectUnit": "Select timestamp unit"
 		},
 		"ipLookup": {
 			"title": "IP Address Lookup Tool",

@@ -2,6 +2,7 @@
 
 import { Calendar, ArrowRightLeft } from 'lucide-react';
 import { Lunar } from 'lunar-javascript';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -17,6 +18,7 @@ import {
 } from '@/app/_components/shadcn/select';
 
 export default function LunarSolarCalendarPage() {
+    const t = useTranslations();
     const [solarDate, setSolarDate] = useState('');
     const [lunarYear, setLunarYear] = useState('');
     const [lunarMonth, setLunarMonth] = useState('');
@@ -44,7 +46,7 @@ export default function LunarSolarCalendarPage() {
                 const isLeap = lunar.isLeap() ? '（闰月）' : '';
 
                 setResult(
-                    `农历 ${lunarYear}年${lunarMonth}月${lunarDay}${isLeap} (${year}年${month}月${day}日) - 生肖：${zodiac}`,
+                    `农历 ${lunarYear}年${lunarMonth}月${lunarDay}${isLeap} (${year}年${month}月${day}日) - ���肖：${zodiac}`,
                 );
             } else {
                 const lunar = Lunar.fromYmd(
@@ -70,12 +72,14 @@ export default function LunarSolarCalendarPage() {
         if (conversionType === 'solarToLunar') {
             return (
                 <div className="tw-space-y-2">
-                    <Label htmlFor="solarDate">公历日期</Label>
+                    <Label htmlFor="solarDate">{t('Tools.lunarCalendar.solarDate')}</Label>
                     <Input
                         id="solarDate"
                         type="date"
                         value={solarDate}
-                        onChange={(e) => setSolarDate(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                            setSolarDate(e.target.value)
+                        }
                     />
                 </div>
             );
@@ -83,21 +87,23 @@ export default function LunarSolarCalendarPage() {
         return (
             <div className="tw-grid tw-grid-cols-2 tw-gap-4">
                 <div className="tw-space-y-2">
-                    <Label htmlFor="lunarYear">农历年</Label>
+                    <Label htmlFor="lunarYear">{t('Tools.lunarCalendar.lunarYear')}</Label>
                     <Input
                         id="lunarYear"
                         type="number"
-                        placeholder="年"
+                        placeholder={t('Tools.lunarCalendar.yearPlaceholder')}
                         value={lunarYear}
-                        onChange={(e) => setLunarYear(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                            setLunarYear(e.target.value)
+                        }
                     />
                 </div>
                 <div className="tw-space-y-2">
-                    <Label htmlFor="lunarMonth">农历月</Label>
+                    <Label htmlFor="lunarMonth">{t('Tools.lunarCalendar.lunarMonth')}</Label>
                     <Input
                         id="lunarMonth"
                         type="number"
-                        placeholder="月"
+                        placeholder={t('Tools.lunarCalendar.monthPlaceholder')}
                         min="1"
                         max="12"
                         value={lunarMonth}
@@ -105,11 +111,11 @@ export default function LunarSolarCalendarPage() {
                     />
                 </div>
                 <div className="tw-space-y-2">
-                    <Label htmlFor="lunarDay">农历日</Label>
+                    <Label htmlFor="lunarDay">{t('Tools.lunarCalendar.lunarDay')}</Label>
                     <Input
                         id="lunarDay"
                         type="number"
-                        placeholder="日"
+                        placeholder={t('Tools.lunarCalendar.dayPlaceholder')}
                         min="1"
                         max="30"
                         value={lunarDay}
@@ -117,13 +123,15 @@ export default function LunarSolarCalendarPage() {
                     />
                 </div>
                 <div className="tw-space-y-2">
-                    <Label htmlFor="isLeapMonth">是否闰月</Label>
+                    <Label htmlFor="isLeapMonth">{t('Tools.lunarCalendar.isLeapMonth')}</Label>
                     <Select
                         value={isLeapMonth ? 'true' : 'false'}
                         onValueChange={(value) => setIsLeapMonth(value === 'true')}
                     >
                         <SelectTrigger id="isLeapMonth">
-                            <SelectValue placeholder="选择是否闰月" />
+                            <SelectValue
+                                placeholder={t('Tools.lunarCalendar.isLeapMonthPlaceholder')}
+                            />
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="false">否</SelectItem>
@@ -139,13 +147,13 @@ export default function LunarSolarCalendarPage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    农历公历日期转换
+                    {t('Tools.lunarCalendar.title')}
                 </h1>
                 <Card className="tw-max-w-2xl tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
                             <Calendar className="tw-h-6 tw-w-6 tw-text-blue-500" />
-                            <span>日期转换工具</span>
+                            <span>{t('Tools.lunarCalendar.name')}</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -156,7 +164,7 @@ export default function LunarSolarCalendarPage() {
                                         conversionType === 'solarToLunar' ? 'tw-font-bold' : ''
                                     }
                                 >
-                                    公历
+                                    {t('Tools.lunarCalendar.calendar.solar')}
                                 </span>
                                 <Button
                                     variant="outline"
@@ -176,48 +184,20 @@ export default function LunarSolarCalendarPage() {
                                         conversionType === 'lunarToSolar' ? 'tw-font-bold' : ''
                                     }
                                 >
-                                    农历
+                                    {t('Tools.lunarCalendar.calendar.lunar')}
                                 </span>
                             </div>
                             {renderInputFields()}
                             <Button onClick={convertDate} className="tw-w-full">
-                                转换日期
+                                {t('Tools.lunarCalendar.convert')}
                             </Button>
                             <div className="tw-space-y-2">
-                                <Label htmlFor="result">转换结果</Label>
+                                <Label htmlFor="result">{t('Tools.lunarCalendar.result')}</Label>
                                 <Input id="result" value={result} readOnly />
                             </div>
                         </div>
                     </CardContent>
                 </Card>
-                {/* API 使用说明
-                    端点和参数:
-                    1. 公历转农历:
-                       GET /api/lunar-calendar?action=solarToLunar&date=2023-05-01
-                       - date: YYYY-MM-DD格式
-                       
-                    2. 农历转公历:
-                       GET /api/lunar-calendar?action=lunarToSolar&date=2023-3-11&isLeap=false
-                       - date: YYYY-MM-DD格式
-                       - isLeap: 是否闰月(true/false)
-
-                    响应示例:
-                    1. 公历转农历响应:
-                    {
-                        "lunarDate": "2023-3-11",
-                        "lunarYearInChinese": "二〇二三",
-                        "lunarMonthInChinese": "三",
-                        "lunarDayInChinese": "十一",
-                        "zodiac": "兔",
-                        "isLeapMonth": false
-                    }
-
-                    2. 农历转公历响应:
-                    {
-                        "solarDate": "2023-05-01",
-                        "weekDay": "Monday"
-                    }
-                */}
             </div>
         </div>
     );

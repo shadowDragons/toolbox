@@ -1,6 +1,7 @@
 'use client';
 
 import { Globe, Search } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -18,6 +19,7 @@ interface IPInfo {
 }
 
 export default function IPLookupPage() {
+    const t = useTranslations();
     const [queryType, setQueryType] = useState<'local' | 'specific'>('local');
     const [ipAddress, setIpAddress] = useState('');
     const [ipInfo, setIpInfo] = useState<IPInfo | null>(null);
@@ -51,13 +53,13 @@ export default function IPLookupPage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    IP地址查询工具
+                    {t('Tools.ipLookup.title')}
                 </h1>
                 <Card className="tw-max-w-2xl tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
                             <Globe className="tw-h-6 tw-w-6 tw-text-blue-500" />
-                            <span>IP查询</span>
+                            <span>{t('Tools.ipLookup.name')}</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -69,11 +71,15 @@ export default function IPLookupPage() {
                             >
                                 <div className="tw-flex tw-items-center tw-space-x-2">
                                     <RadioGroupItem value="local" id="local" />
-                                    <Label htmlFor="local">查询本机IP</Label>
+                                    <Label htmlFor="local">
+                                        {t('Tools.ipLookup.queryTypes.local')}
+                                    </Label>
                                 </div>
                                 <div className="tw-flex tw-items-center tw-space-x-2">
                                     <RadioGroupItem value="specific" id="specific" />
-                                    <Label htmlFor="specific">查询指定IP</Label>
+                                    <Label htmlFor="specific">
+                                        {t('Tools.ipLookup.queryTypes.specific')}
+                                    </Label>
                                 </div>
                             </RadioGroup>
 
@@ -82,9 +88,11 @@ export default function IPLookupPage() {
                                     <Label htmlFor="ipAddress">IP地址</Label>
                                     <Input
                                         id="ipAddress"
-                                        placeholder="输入要查询的IP地址"
+                                        placeholder={t('Tools.ipLookup.inputPlaceholder')}
                                         value={ipAddress}
-                                        onChange={(e) => setIpAddress(e.target.value)}
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                            setIpAddress(e.target.value)
+                                        }
                                     />
                                 </div>
                             )}
@@ -99,26 +107,30 @@ export default function IPLookupPage() {
                                 ) : (
                                     <Search className="tw-mr-2 tw-h-4 tw-w-4" />
                                 )}
-                                查询
+                                {t('Tools.ipLookup.lookup')}
                             </Button>
 
-                            {error && <p className="tw-text-red-500">{error}</p>}
+                            {error && (
+                                <p className="tw-text-red-500">
+                                    {t('Tools.ipLookup.lookupFailed')}
+                                </p>
+                            )}
 
                             {ipInfo && (
                                 <div className="tw-bg-white tw-p-4 tw-rounded-md tw-border">
                                     <h3 className="tw-text-lg tw-font-semibold tw-mb-2">
-                                        查询结果
+                                        {t('Tools.ipLookup.result.title')}
                                     </h3>
                                     <div className="tw-grid tw-grid-cols-2 tw-gap-2">
                                         <div>
                                             <p className="tw-text-sm tw-font-medium tw-text-gray-500">
-                                                IP地址
+                                                {t('Tools.ipLookup.result.ip')}
                                             </p>
                                             <p>{ipInfo.ip}</p>
                                         </div>
                                         <div>
                                             <p className="tw-text-sm tw-font-medium tw-text-gray-500">
-                                                位置
+                                                {t('Tools.ipLookup.result.location')}
                                             </p>
                                             <p>{ipInfo.address}</p>
                                         </div>
@@ -128,29 +140,6 @@ export default function IPLookupPage() {
                         </div>
                     </CardContent>
                 </Card>
-
-                {/* API使用说明 */}
-                {/* 
-                API 使用说明:
-                - 端点: GET /api/ip-lookup
-                - 参数: 
-                    - type: 查询类型 (0: 本机IP, 1: 指定IP)
-                    - ip: 要查询的IP地址（当type=1时必填）
-                
-                示例请求:
-                GET /api/ip-lookup?ip=8.8.8.8
-
-                示例响应:
-                {
-                    "ip": "8.8.8.8",
-                    "address": "美国, 加利福尼亚州, 山景城",
-                    "isDomain": 0,
-                    "latitude": 37.386,
-                    "longitude": -122.0838,
-                    "isp": "Google LLC",
-                    "timezone": "UTC-8"
-                }
-                */}
             </div>
         </div>
     );
