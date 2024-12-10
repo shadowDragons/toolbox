@@ -47,15 +47,35 @@ export function generateSitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'daily' as const,
             priority: 1,
         },
+        {
+            url: `${baseUrl}/en`,
+            lastModified: new Date(),
+            changeFrequency: 'daily' as const,
+            priority: 1,
+        },
+        {
+            url: `${baseUrl}/zh`,
+            lastModified: new Date(),
+            changeFrequency: 'daily' as const,
+            priority: 1,
+        },
     ];
 
-    // 添加工具页面路由
-    const toolRoutes = tools.map((tool) => ({
-        url: `${baseUrl}${tool.path}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-    }));
+    // 添加工具页面路由 (为每个工具添加中英文路由)
+    const toolRoutes = tools.flatMap((tool) => [
+        {
+            url: `${baseUrl}/zh${tool.path}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/en${tool.path}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.8,
+        },
+    ]);
 
     return [...routes, ...toolRoutes];
 }

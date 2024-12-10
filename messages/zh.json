@@ -1,6 +1,6 @@
 {
     "HomePage": {
-        "title": "你好世界",
+        "title": "字节在线工具站",
         "about": "Go to the about page"
     },
     "Tools": {
@@ -35,9 +35,10 @@
             "urlOutputPlaceholder": "编码/解码后的 URL"
         },
         "byteConverter": {
-            "title": "字节数据转换器",
-            "name": "字节转换工具",
-            "description": "KB、MB、GB等单位快速转换"
+            "title": "字节转换器",
+            "name": "字节单位转换",
+            "description": "KB、MB、GB等单位快速转换",
+            "inputPlaceholder": "输入"
         },
         "lunarCalendar": {
             "title": "农历转换",
@@ -71,7 +72,7 @@
             "explanation": "解释",
             "bases": {
                 "binary": "二进制",
-                "octal": "八进制",
+                "octal": "八��制",
                 "decimal": "十进制",
                 "hex": "十六进制",
                 "base32": "数字 + 大写字母, 不包含 ILOU 字符",
@@ -86,13 +87,16 @@
             "name": "中英互译",
             "description": "中英文本快速互译工具",
             "translate": "翻译",
-            "inputPlaceholder": "请输入要翻译���文本",
+            "inputPlaceholder": "请输入要翻译的文本",
             "translateResult": "翻译结果",
             "translateFailed": "翻译失败，请重试",
             "languages": {
                 "chinese": "中文",
                 "english": "英文"
-            }
+            },
+            "emptyInput": "请输入要翻译的文本",
+            "selectSource": "选择源语言",
+            "selectTarget": "选择目标语言"
         },
         "timestampConverter": {
             "title": "增强型时间戳转换工具",

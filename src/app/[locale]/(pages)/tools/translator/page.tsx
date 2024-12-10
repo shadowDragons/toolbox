@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRightLeft, Languages } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -15,6 +16,7 @@ import {
 import { Textarea } from '@/app/_components/shadcn/textarea';
 
 export default function TranslatorPage() {
+    const t = useTranslations();
     const [inputText, setInputText] = useState('');
     const [outputText, setOutputText] = useState('');
     const [fromLang, setFromLang] = useState('zh');
@@ -22,7 +24,7 @@ export default function TranslatorPage() {
 
     const handleTranslate = async () => {
         if (inputText.trim() === '') {
-            setOutputText('请输入要翻译的文本');
+            setOutputText(t('Tools.translator.emptyInput'));
             return;
         }
 
@@ -39,7 +41,7 @@ export default function TranslatorPage() {
         });
 
         if (!response.ok) {
-            setOutputText('翻译失败，请重试');
+            setOutputText(t('Tools.translator.translateFailed'));
             return;
         }
 
@@ -58,13 +60,13 @@ export default function TranslatorPage() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    中英互译工具
+                    {t('Tools.translator.title')}
                 </h1>
                 <Card className="tw-max-w-3xl tw-mx-auto">
                     <CardHeader>
                         <CardTitle className="tw-flex tw-items-center tw-space-x-2">
                             <Languages className="tw-h-6 tw-w-6 tw-text-blue-500" />
-                            <span>中英互译</span>
+                            <span>{t('Tools.translator.name')}</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -72,11 +74,17 @@ export default function TranslatorPage() {
                             <div className="tw-flex tw-items-center tw-justify-between tw-space-x-4">
                                 <Select value={fromLang} onValueChange={setFromLang}>
                                     <SelectTrigger className="tw-w-[180px]">
-                                        <SelectValue placeholder="选择源语言" />
+                                        <SelectValue
+                                            placeholder={t('Tools.translator.selectSource')}
+                                        />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="zh">中文</SelectItem>
-                                        <SelectItem value="en">英文</SelectItem>
+                                        <SelectItem value="zh">
+                                            {t('Tools.translator.languages.chinese')}
+                                        </SelectItem>
+                                        <SelectItem value="en">
+                                            {t('Tools.translator.languages.english')}
+                                        </SelectItem>
                                     </SelectContent>
                                 </Select>
                                 <Button variant="outline" size="icon" onClick={switchLanguages}>
@@ -84,46 +92,40 @@ export default function TranslatorPage() {
                                 </Button>
                                 <Select value={toLang} onValueChange={setToLang}>
                                     <SelectTrigger className="tw-w-[180px]">
-                                        <SelectValue placeholder="选择目标语言" />
+                                        <SelectValue
+                                            placeholder={t('Tools.translator.selectTarget')}
+                                        />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="zh">中文</SelectItem>
-                                        <SelectItem value="en">英文</SelectItem>
+                                        <SelectItem value="zh">
+                                            {t('Tools.translator.languages.chinese')}
+                                        </SelectItem>
+                                        <SelectItem value="en">
+                                            {t('Tools.translator.languages.english')}
+                                        </SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
                             <Textarea
-                                placeholder="请输入要翻译的文本"
+                                placeholder={t('Tools.translator.inputPlaceholder')}
                                 value={inputText}
-                                onChange={(e) => setInputText(e.target.value)}
+                                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                                    setInputText(e.target.value)
+                                }
                                 rows={5}
                             />
                             <Button onClick={handleTranslate} className="tw-w-full">
-                                翻译
+                                {t('Tools.translator.translate')}
                             </Button>
-                            <Textarea placeholder="翻译结果" value={outputText} readOnly rows={5} />
+                            <Textarea
+                                placeholder={t('Tools.translator.translateResult')}
+                                value={outputText}
+                                readOnly
+                                rows={5}
+                            />
                         </div>
                     </CardContent>
                 </Card>
-                {/* API使用说明 Card 移除，改为注释形式记录 */}
-                {/* 
-                API 使用说明:
-                - 端点: POST /api/translator
-                - 请求体 (JSON): 
-                    - text: 要翻译的文本
-                    - from: 源语言代码 (zh/en)
-                    - to: 目标语言代码 (zh/en)
-                - 示例请求: 
-                    {
-                        "text": "你好",
-                        "from": "zh",
-                        "to": "en"
-                    }
-                - 示例响应:
-                    {
-                        "translatedText": "Hello"
-                    }
-                */}
             </div>
         </div>
     );

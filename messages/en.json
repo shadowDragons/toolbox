@@ -1,6 +1,6 @@
 {
 	"HomePage": {
-		"title": "Hello world2!",
+		"title": "Byte Online Tools",
 		"about": "Go to the about page"
 	},
 	"Tools": {
@@ -35,9 +35,10 @@
 			"urlOutputPlaceholder": "Encoded/Decoded URL"
 		},
 		"byteConverter": {
-			"title": "Byte Data Converter",
-			"name": "Byte Converter",
-			"description": "Quick conversion between KB, MB, GB and other units"
+			"title": "Byte Converter",
+			"name": "Byte Unit Converter",
+			"description": "Quick conversion between KB, MB, GB and other units",
+			"inputPlaceholder": "Enter"
 		},
 		"lunarCalendar": {
 			"title": "Lunar Calendar",
