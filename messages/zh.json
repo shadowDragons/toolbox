@@ -1,0 +1,107 @@
+{
+    "HomePage": {
+        "title": "你好世界",
+        "about": "Go to the about page"
+    },
+    "Tools": {
+        "common": {
+            "useNow": "现在使用"
+        },
+        "calculator": {
+            "title": "计算器",
+            "name": "简单计算器",
+            "description": "简单方便的科学计算器",
+            "clear": "清除"
+        },
+        "dataConverter": {
+            "title": "数据转换",
+            "description": "支持JSON、Base64和URL编解码",
+            "invalidJson": "无效的 JSON 格式",
+            "invalidBase64Input": "无效的 Base64 编码输入",
+            "invalidBase64Format": "无效的 Base64 格式",
+            "invalidUrlInput": "无效的 URL 编码输入",
+            "invalidUrlFormat": "无效的 URL 编码格式",
+            "formatJson": "格式化 JSON",
+            "minifyJson": "压缩 JSON",
+            "encodeBase64": "Base64 编码",
+            "decodeBase64": "Base64 解码",
+            "encodeUrl": "URL 编码",
+            "decodeUrl": "URL 解码"
+        },
+        "byteConverter": {
+            "title": "字节数据转换器",
+            "name": "字节转换工具",
+            "description": "KB、MB、GB等单位快速转换"
+        },
+        "lunarCalendar": {
+            "title": "农历转换",
+            "description": "公历与农历日期互转工具"
+        },
+        "numberConverter": {
+            "title": "进制转换工具",
+            "name": "数字进制转换",
+            "description": "二进制、八进制、十进制、十六进制转换",
+            "inputValue": "输入数值",
+            "base": "进制",
+            "result": "结果",
+            "explanation": "解释",
+            "bases": {
+                "binary": "二进制",
+                "octal": "八进制",
+                "decimal": "十进制",
+                "hex": "十六进制",
+                "base32": "数字 + 大写字母, 不包含 ILOU 字符",
+                "base36": "数字 + 小写字母",
+                "base58": "数字 + 大小写字母, 不包含 0OIl 字符",
+                "base62": "数字 + 大小写字母"
+            }
+        },
+        "translator": {
+            "title": "中英互译工具",
+            "name": "中英互译",
+            "description": "中英文本快速互译工具",
+            "translate": "翻译",
+            "inputPlaceholder": "请输入要翻译的文本",
+            "translateResult": "翻译结果",
+            "translateFailed": "翻译失败，请重试",
+            "languages": {
+                "chinese": "中文",
+                "english": "英文"
+            }
+        },
+        "timestampConverter": {
+            "title": "增强型时间戳转换工具",
+            "name": "时间戳转换",
+            "description": "时间戳与日期时间格式互转",
+            "currentTimestamp": "当前Unix时间戳",
+            "stop": "停止",
+            "start": "开始",
+            "refresh": "刷新",
+            "units": {
+                "seconds": "秒",
+                "milliseconds": "毫秒"
+            },
+            "convertTypes": {
+                "toTimestamp": "日期时间 → 时间戳",
+                "fromTimestamp": "时间戳 → 日期时间"
+            }
+        },
+        "ipLookup": {
+            "title": "IP地址查询工具",
+            "name": "IP查询",
+            "description": "IP地址归属地查询工具",
+            "queryTypes": {
+                "local": "查询本机IP",
+                "specific": "查询指定IP"
+            },
+            "inputPlaceholder": "输入要查询的IP地址",
+            "lookup": "查询",
+            "lookupFailed": "查询失败,请稍后再试",
+            "result": {
+                "title": "查询结果",
+                "ip": "IP地址",
+                "location": "位置"
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+{
+	"HomePage": {
+		"title": "Hello world2!",
+		"about": "Go to the about page"
+	},
+	"Tools": {
+		"common": {
+			"useNow": "Use Now"
+		},
+		"calculator": {
+			"title": "Calculator",
+			"name": "Simple Calculator",
+			"description": "Simple and convenient scientific calculator",
+			"clear": "Clear"
+		},
+		"dataConverter": {
+			"title": "Data Converter",
+			"description": "Support JSON, Base64 and URL encoding/decoding",
+			"invalidJson": "Invalid JSON format",
+			"invalidBase64Input": "Invalid Base64 encoding input",
+			"invalidBase64Format": "Invalid Base64 format",
+			"invalidUrlInput": "Invalid URL encoding input",
+			"invalidUrlFormat": "Invalid URL encoding format",
+			"formatJson": "Format JSON",
+			"minifyJson": "Minify JSON",
+			"encodeBase64": "Base64 Encode",
+			"decodeBase64": "Base64 Decode",
+			"encodeUrl": "URL Encode",
+			"decodeUrl": "URL Decode"
+		},
+		"byteConverter": {
+			"title": "Byte Data Converter",
+			"name": "Byte Converter",
+			"description": "Quick conversion between KB, MB, GB and other units"
+		},
+		"lunarCalendar": {
+			"title": "Lunar Calendar",
+			"description": "Convert between Gregorian and Lunar calendar dates"
+		},
+		"numberConverter": {
+			"title": "Number Base Converter",
+			"name": "Number Base Conversion",
+			"description": "Convert between binary, octal, decimal and hexadecimal",
+			"inputValue": "Input Value",
+			"base": "Base",
+			"result": "Result",
+			"explanation": "Explanation",
+			"bases": {
+				"binary": "Binary",
+				"octal": "Octal",
+				"decimal": "Decimal",
+				"hex": "Hexadecimal",
+				"base32": "Numbers + Uppercase letters, excluding ILOU",
+				"base36": "Numbers + Lowercase letters",
+				"base58": "Numbers + Letters, excluding 0OIl",
+				"base62": "Numbers + Letters"
+			}
+		},
+		"translator": {
+			"title": "Chinese-English Translator",
+			"name": "Chinese-English Translation",
+			"description": "Quick translation between Chinese and English texts",
+			"translate": "Translate",
+			"inputPlaceholder": "Please enter text to translate",
+			"translateResult": "Translation Result",
+			"translateFailed": "Translation failed, please try again",
+			"languages": {
+				"chinese": "Chinese",
+				"english": "English"
+			}
+		},
+		"timestampConverter": {
+			"title": "Enhanced Timestamp Converter",
+			"name": "Timestamp Converter",
+			"description": "Convert between timestamp and datetime format",
+			"currentTimestamp": "Current Unix Timestamp",
+			"stop": "Stop",
+			"start": "Start",
+			"refresh": "Refresh",
+			"units": {
+				"seconds": "Seconds",
+				"milliseconds": "Milliseconds"
+			},
+			"convertTypes": {
+				"toTimestamp": "Datetime → Timestamp",
+				"fromTimestamp": "Timestamp → Datetime"
+			}
+		},
+		"ipLookup": {
+			"title": "IP Address Lookup Tool",
+			"name": "IP Lookup",
+			"description": "IP address location lookup tool",
+			"queryTypes": {
+				"local": "Query Local IP",
+				"specific": "Query Specific IP"
+			},
+			"inputPlaceholder": "Enter IP address to lookup",
+			"lookup": "Lookup",
+			"lookupFailed": "Lookup failed, please try again later",
+			"result": {
+				"title": "Lookup Result",
+				"ip": "IP Address",
+				"location": "Location"
+			}
+		}
+	}
+}

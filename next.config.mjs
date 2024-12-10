@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // 启用react严格模式(可选)
@@ -11,4 +15,4 @@ const nextConfig = {
     },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
