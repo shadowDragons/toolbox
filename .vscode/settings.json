@@ -24,5 +24,9 @@
     "javascript.preferences.importModuleSpecifier": "project-relative",
     "typescript.suggest.jsdoc.generateReturns": false,
     "stylelint.packageManager": "pnpm",
-    "npm.packageManager": "pnpm"
+    "npm.packageManager": "pnpm",
+    "i18n-ally.localesPaths": [
+        "messages",
+        "src/i18n"
+    ]
 }
