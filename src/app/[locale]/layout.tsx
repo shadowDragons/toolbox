@@ -10,9 +10,19 @@ import { routing } from '@/i18n/routing';
 import './styles/index.css';
 
 export const metadata: Metadata = {
-    title: '字节在线工具站',
+    title: 'Byte Online Tools | 字节在线工具站',
     description:
-        '在线工具、开发人员工具、代码格式化、压缩、加密、解密,时间转换、翻译、计算器、ip查询，数字单位转换',
+        'Online tools, developer tools, code formatting, compression, encryption, decryption, time conversion, translation, calculator, IP lookup, digital unit conversion | 在线工具、开发人员工具、代码格式化、压缩、加密、解密、时间转换、翻译、计算器、IP查询、数字单位转换',
+    openGraph: {
+        type: 'website',
+        locale: 'en-US',
+        url: 'https://online.tool.vin',
+        title: 'Byte Online Tools',
+        description:
+            'Online tools, developer tools, code formatting, compression, encryption, decryption, time conversion, translation, calculator, IP lookup, digital unit conversion | 在线工具、开发人员工具、代码格式化、压缩、加密、解密、时间转换、翻译、计算器、IP查询、数字单位转换',
+        siteName: 'Byte Online Tools',
+        images: '/og-image.png',
+    },
 };
 
 export default async function LocaleLayout({
