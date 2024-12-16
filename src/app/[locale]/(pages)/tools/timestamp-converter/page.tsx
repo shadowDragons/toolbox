@@ -167,15 +167,15 @@ export default function TimestampConverterPage() {
                             <div className="tw-space-y-2">
                                 <Label htmlFor="input">
                                     {conversionType === 'toTimestamp'
-                                        ? '输入日期时间 (YYYY-MM-DD HH:MM:SS)'
-                                        : '输入时间戳'}
+                                        ? t('Tools.timestampConverter.inputDateTime')
+                                        : t('Tools.timestampConverter.inputTimestamp')}
                                 </Label>
                                 <Input
                                     id="input"
                                     placeholder={
                                         conversionType === 'toTimestamp'
-                                            ? '2023-05-20 15:30:00'
-                                            : '1684590600'
+                                            ? t('Tools.timestampConverter.dateTimePlaceholder')
+                                            : t('Tools.timestampConverter.timestampPlaceholder')
                                     }
                                     value={inputValue}
                                     onChange={(e) => setInputValue(e.target.value)}

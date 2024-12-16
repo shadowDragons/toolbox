@@ -72,7 +72,7 @@
             "explanation": "解释",
             "bases": {
                 "binary": "二进制",
-                "octal": "八��制",
+                "octal": "八进制",
                 "decimal": "十进制",
                 "hex": "十六进制",
                 "base32": "数字 + 大写字母, 不包含 ILOU 字符",
@@ -114,7 +114,13 @@
                 "toTimestamp": "日期时间 → 时间戳",
                 "fromTimestamp": "时间戳 → 日期时间"
             },
-            "selectUnit": "选择时间戳单位"
+            "selectUnit": "选择时间戳单位",
+            "inputDateTime": "输入日期时间",
+            "inputTimestamp": "输入时间戳",
+            "dateTimePlaceholder": "例如: 2023-05-20 15:30:00",
+            "timestampPlaceholder": "例如: 1684590600",
+            "convert": "转换",
+            "convertResult": "转换结果"
         },
         "ipLookup": {
             "title": "IP地址查询工具",
@@ -131,7 +137,8 @@
                 "title": "查询结果",
                 "ip": "IP地址",
                 "location": "位置"
-            }
+            },
+            "ipAddress": "IP地址"
         }
     }
 }

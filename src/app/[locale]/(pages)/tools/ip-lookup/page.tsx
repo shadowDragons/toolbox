@@ -85,7 +85,9 @@ export default function IPLookupPage() {
 
                             {queryType === 'specific' && (
                                 <div className="tw-space-y-2">
-                                    <Label htmlFor="ipAddress">IP地址</Label>
+                                    <Label htmlFor="ipAddress">
+                                        {t('Tools.ipLookup.ipAddress')}
+                                    </Label>
                                     <Input
                                         id="ipAddress"
                                         placeholder={t('Tools.ipLookup.inputPlaceholder')}

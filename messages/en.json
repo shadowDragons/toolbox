@@ -93,7 +93,13 @@
 				"toTimestamp": "Datetime → Timestamp",
 				"fromTimestamp": "Timestamp → Datetime"
 			},
-			"selectUnit": "Select timestamp unit"
+			"selectUnit": "Select timestamp unit",
+			"inputDateTime": "Enter Date Time",
+            "inputTimestamp": "Enter Timestamp",
+            "dateTimePlaceholder": "e.g., 2023-05-20 15:30:00",
+            "timestampPlaceholder": "e.g., 1684590600",
+            "convert": "Convert",
+            "convertResult": "Convert Result"
 		},
 		"ipLookup": {
 			"title": "IP Address Lookup Tool",
@@ -110,7 +116,8 @@
 				"title": "Lookup Result",
 				"ip": "IP Address",
 				"location": "Location"
-			}
+			},
+			"ipAddress": "IP Address"
 		}
 	}
 }
