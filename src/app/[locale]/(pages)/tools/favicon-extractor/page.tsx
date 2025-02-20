@@ -20,22 +20,6 @@ export default function FaviconExtractor() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const checkFaviconExists = async (iconUrl: string): Promise<boolean> => {
-        try {
-            const response = await fetch('/api/check-favicon', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ url: iconUrl }),
-            });
-            const data = await response.json();
-            return data.exists;
-        } catch {
-            return false;
-        }
-    };
-
     const extractFavicon = async () => {
         try {
             setError('');
@@ -47,35 +31,17 @@ export default function FaviconExtractor() {
                 return;
             }
 
-            let processedUrl = url;
-            if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                processedUrl = `https://${url}`;
+            const response = await fetch(`/api/favicon-extractor?url=${encodeURIComponent(url)}`);
+            const data = await response.json();
+
+            if (data.error) {
+                setError(t('errors.invalidUrl'));
+                return;
             }
 
-            // 常见的favicon路径
-            const commonPaths = [
-                '/favicon.ico',
-                '/favicon.png',
-                '/apple-touch-icon.png',
-                '/apple-touch-icon-precomposed.png',
-            ];
+            setFaviconUrls(data.icons);
 
-            const domain = new URL(processedUrl).origin;
-            const results: FaviconResult[] = [];
-
-            // 并行检查所有图标URL
-            const checks = commonPaths.map(async (path) => {
-                const iconUrl = `${domain}${path}`;
-                const exists = await checkFaviconExists(iconUrl);
-                if (exists) {
-                    results.push({ url: iconUrl, exists });
-                }
-            });
-
-            await Promise.all(checks);
-            setFaviconUrls(results);
-
-            if (results.length === 0) {
+            if (data.icons.length === 0) {
                 setError(t('errors.noFavicon'));
             }
         } catch {
