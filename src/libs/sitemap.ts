@@ -69,22 +69,6 @@ const tools: Tool[] = [
         },
     },
     {
-        name: '农历转换',
-        path: '/tools/lunar-calendar',
-        seo: {
-            zh: {
-                title: '在线农历转换器 - 公历农历日期互转工具 | Byte Tools',
-                description:
-                    '免费在线农历转换工具，支持公历与农历日期互转，包含节气、节日信息，方便实用。',
-            },
-            en: {
-                title: 'Online Lunar Calendar Converter - Solar to Lunar Date | Byte Tools',
-                description:
-                    'Free online lunar calendar converter. Convert between solar and lunar dates with solar terms and festivals.',
-            },
-        },
-    },
-    {
         name: '进制转换',
         path: '/tools/number-converter',
         seo: {

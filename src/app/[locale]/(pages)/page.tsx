@@ -2,7 +2,6 @@ import {
     Calculator,
     FileJson,
     HardDrive,
-    Calendar,
     Binary,
     Languages,
     Clock,
@@ -45,12 +44,7 @@ export default function HomePage() {
             icon: HardDrive,
             href: '/tools/byte-converter',
         },
-        {
-            name: t('Tools.lunarCalendar.title'),
-            description: t('Tools.lunarCalendar.description'),
-            icon: Calendar,
-            href: '/tools/lunar-calendar',
-        },
+
         {
             name: t('Tools.numberConverter.name'),
             description: t('Tools.numberConverter.description'),

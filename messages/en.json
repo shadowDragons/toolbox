@@ -40,10 +40,6 @@
 			"description": "Quick conversion between KB, MB, GB and other units",
 			"inputPlaceholder": "Enter"
 		},
-		"lunarCalendar": {
-			"title": "Lunar Calendar",
-			"description": "Convert between Gregorian and Lunar calendar dates"
-		},
 		"numberConverter": {
 			"title": "Number Base Converter",
 			"name": "Number Base Conversion",

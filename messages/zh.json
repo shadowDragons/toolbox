@@ -40,28 +40,6 @@
             "description": "KB、MB、GB等单位快速转换",
             "inputPlaceholder": "输入"
         },
-        "lunarCalendar": {
-            "title": "农历转换",
-            "description": "公历与农历日期互转工具",
-            "calendar": {
-                "solar": "公历",
-                "lunar": "农历"
-            },
-            "convert": "转换日期",
-            "result": "转换结果",
-            "solarDate": "公历日期",
-            "lunarYear": "农历年",
-            "lunarMonth": "农历月",
-            "lunarDay": "农历日",
-            "yearPlaceholder": "年",
-            "monthPlaceholder": "月",
-            "dayPlaceholder": "日",
-            "isLeapMonth": "是否闰月",
-            "leapOptions": {
-                "true": "是",
-                "false": "否"
-            }
-        },
         "numberConverter": {
             "title": "进制转换工具",
             "name": "数字进制转换",
