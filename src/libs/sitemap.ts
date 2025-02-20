@@ -36,6 +36,14 @@ const tools = [
         name: 'IP查询',
         path: '/tools/ip-lookup',
     },
+    {
+        name: '网站图标提取',
+        path: '/tools/favicon-extractor',
+    },
+    {
+        name: '世界时钟',
+        path: '/tools/world-clock',
+    },
 ];
 
 export function generateSitemap(): MetadataRoute.Sitemap {
