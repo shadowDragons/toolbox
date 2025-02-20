@@ -10,7 +10,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/_components/shad
 
 interface IpInfo {
     ip: string;
-    location: string;
+    address: string;
+    latitude: string;
+    longitude: string;
+    isp: string;
+    timezone: string;
 }
 
 export default function IpLookupClient() {
@@ -40,7 +44,11 @@ export default function IpLookupClient() {
 
             setIpInfo({
                 ip: data.ip,
-                location: data.location,
+                address: data.address,
+                latitude: data.latitude,
+                longitude: data.longitude,
+                isp: data.isp,
+                timezone: data.timezone,
             });
         } catch (err) {
             setError(t('lookupFailed'));
@@ -91,9 +99,33 @@ export default function IpLookupClient() {
                                                 </div>
                                                 <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
                                                     <span className="tw-text-gray-600">
-                                                        {t('result.location')}
+                                                        {t('result.address')}
                                                     </span>
-                                                    <span>{ipInfo.location}</span>
+                                                    <span>{ipInfo.address}</span>
+                                                </div>
+                                                <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
+                                                    <span className="tw-text-gray-600">
+                                                        {t('result.latitude')}
+                                                    </span>
+                                                    <span>{ipInfo.latitude}</span>
+                                                </div>
+                                                <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
+                                                    <span className="tw-text-gray-600">
+                                                        {t('result.longitude')}
+                                                    </span>
+                                                    <span>{ipInfo.longitude}</span>
+                                                </div>
+                                                <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
+                                                    <span className="tw-text-gray-600">
+                                                        {t('result.isp')}
+                                                    </span>
+                                                    <span>{ipInfo.isp}</span>
+                                                </div>
+                                                <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
+                                                    <span className="tw-text-gray-600">
+                                                        {t('result.timezone')}
+                                                    </span>
+                                                    <span>{ipInfo.timezone}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,9 +165,33 @@ export default function IpLookupClient() {
                                                 </div>
                                                 <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
                                                     <span className="tw-text-gray-600">
-                                                        {t('result.location')}
+                                                        {t('result.address')}
                                                     </span>
-                                                    <span>{ipInfo.location}</span>
+                                                    <span>{ipInfo.address}</span>
+                                                </div>
+                                                <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
+                                                    <span className="tw-text-gray-600">
+                                                        {t('result.latitude')}
+                                                    </span>
+                                                    <span>{ipInfo.latitude}</span>
+                                                </div>
+                                                <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
+                                                    <span className="tw-text-gray-600">
+                                                        {t('result.longitude')}
+                                                    </span>
+                                                    <span>{ipInfo.longitude}</span>
+                                                </div>
+                                                <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
+                                                    <span className="tw-text-gray-600">
+                                                        {t('result.isp')}
+                                                    </span>
+                                                    <span>{ipInfo.isp}</span>
+                                                </div>
+                                                <div className="tw-flex tw-justify-between tw-items-center tw-p-3 tw-bg-gray-100 tw-rounded-lg">
+                                                    <span className="tw-text-gray-600">
+                                                        {t('result.timezone')}
+                                                    </span>
+                                                    <span>{ipInfo.timezone}</span>
                                                 </div>
                                             </div>
                                         </div>

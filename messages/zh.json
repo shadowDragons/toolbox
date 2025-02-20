@@ -114,7 +114,12 @@
             "result": {
                 "title": "查询结果",
                 "ip": "IP地址",
-                "location": "位置"
+                "location": "位置",
+                "isp": "ISP",
+                "timezone": "时区",
+                "latitude": "纬度",
+                "longitude": "经度",
+                "address": "地址"
             },
             "ipAddress": "IP地址"
         },

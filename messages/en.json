@@ -126,9 +126,15 @@
 			"result": {
 				"title": "Lookup Result",
 				"ip": "IP Address",
-				"location": "Location"
+				"location": "Location",
+				"isp": "ISP",
+				"timezone": "Timezone",
+				"latitude": "Latitude",
+				"longitude": "Longitude",
+				"address": "Address"
 			},
 			"ipAddress": "IP Address"
+			
 		},
 		"worldClock": {
 			"name": "World Clock",
