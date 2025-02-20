@@ -77,7 +77,7 @@
 			"title": "Enhanced Timestamp Converter",
 			"name": "Timestamp Converter",
 			"description": "Convert between timestamp and datetime format",
-			"currentTimestamp": "Current Unix Timestamp",
+			"currentTime": "Current Time",
 			"stop": "Stop",
 			"start": "Start",
 			"refresh": "Refresh",
