@@ -1,22 +1,23 @@
 import { NextResponse } from 'next/server';
 
-const TRANSLATE_API_URL = 'https://translate.tool.vin/translate';
+const TRANSLATE_API_URL = 'https://api-free.deepl.com/v2/translate';
+const { DEEPL_AUTH_KEY } = process.env;
 
 export async function POST(request: Request) {
-    const { text, from, to } = await request.json();
+    const { text, to } = await request.json();
 
-    if (!text || !from || !to) {
+    if (!text || !to) {
         return NextResponse.json({ error: 'Missing parameters' }, { status: 400 });
     }
 
     const response = await fetch(TRANSLATE_API_URL, {
         method: 'POST',
         headers: {
+            Authorization: `DeepL-Auth-Key ${DEEPL_AUTH_KEY}`,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            text,
-            source_lang: from,
+            text: [text],
             target_lang: to,
         }),
     });
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
     }
 
     const data = await response.json();
-    const translatedText = data.data;
+    const translatedText = data.translations[0].text;
 
     return NextResponse.json({ translatedText });
 }
@@ -44,6 +45,7 @@ export async function GET(request: Request) {
     const response = await fetch(TRANSLATE_API_URL, {
         method: 'POST',
         headers: {
+            Authorization: `DeepL-Auth-Key ${DEEPL_AUTH_KEY}`,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -58,7 +60,7 @@ export async function GET(request: Request) {
     }
 
     const data = await response.json();
-    const translatedText = data.data;
+    const translatedText = data.translations[0].text;
 
     return NextResponse.json({ translatedText });
 }
