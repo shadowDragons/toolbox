@@ -30,7 +30,7 @@ export async function GET(request: Request) {
             isp: data.isp,
             timezone: data.timezone,
         });
-    } catch (error) {
+    } catch (error: any) {
         console.error('IP lookup failed:', error);
         return NextResponse.json({ error: `IP lookup failed: ${error.message}` }, { status: 500 });
     }
