@@ -154,6 +154,30 @@
                 "invalidUrl": "无效的网址",
                 "noFavicon": "未找到可用的网站图标"
             }
+        },
+        "worldClock": {
+            "name": "世界时钟",
+            "description": "查看不同时区的当前时间",
+            "title": "世界时钟",
+            "selectTimezone": "选择时区",
+            "getTime": "获取时间",
+            "checking": "获取中...",
+            "timeResults": "时间结果",
+            "offset": "时区偏移",
+            "refresh": "刷新",
+            "timezones": {
+                "china": "中国 (UTC+8)",
+                "newYork": "纽约 (UTC-4/5)",
+                "london": "伦敦 (UTC+0/1)",
+                "paris": "巴黎 (UTC+1/2)",
+                "tokyo": "东京 (UTC+9)",
+                "sydney": "悉尼 (UTC+10/11)",
+                "auckland": "奥克兰 (UTC+12/13)"
+            },
+            "errors": {
+                "selectTimezone": "请选择时区",
+                "fetchError": "获取时间失败"
+            }
         }
     }
 }

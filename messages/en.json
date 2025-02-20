@@ -133,6 +133,30 @@
 				"location": "Location"
 			},
 			"ipAddress": "IP Address"
+		},
+		"worldClock": {
+			"name": "World Clock",
+			"description": "Check current time in different time zones",
+			"title": "World Clock",
+			"selectTimezone": "Select Time Zone",
+			"getTime": "Get Time",
+			"checking": "Checking...",
+			"timeResults": "Time Results",
+			"offset": "Offset",
+			"refresh": "Refresh",
+			"timezones": {
+				"china": "China (UTC+8)",
+				"newYork": "New York (UTC-4/5)",
+				"london": "London (UTC+0/1)",
+				"paris": "Paris (UTC+1/2)",
+				"tokyo": "Tokyo (UTC+9)",
+				"sydney": "Sydney (UTC+10/11)",
+				"auckland": "Auckland (UTC+12/13)"
+			},
+			"errors": {
+				"selectTimezone": "Please select a time zone",
+				"fetchError": "Failed to fetch time"
+			}
 		}
 	}
 }

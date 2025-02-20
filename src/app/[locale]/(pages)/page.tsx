@@ -8,6 +8,7 @@ import {
     Clock,
     Network,
     Globe,
+    Clock as WorldClock,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 // import Link from 'next/link';
@@ -79,6 +80,12 @@ export default function HomePage() {
             description: t('Tools.faviconExtractor.description'),
             href: '/tools/favicon-extractor',
             icon: Globe,
+        },
+        {
+            name: t('Tools.worldClock.name'),
+            description: t('Tools.worldClock.description'),
+            href: '/tools/world-clock',
+            icon: WorldClock,
         },
     ];
     return (
