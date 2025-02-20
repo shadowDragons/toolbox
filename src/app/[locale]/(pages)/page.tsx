@@ -75,8 +75,8 @@ export default function HomePage() {
             href: '/tools/ip-lookup',
         },
         {
-            name: 'Favicon提取器',
-            description: '获取任意网站的图标(Favicon)',
+            name: t('Tools.faviconExtractor.name'),
+            description: t('Tools.faviconExtractor.description'),
             href: '/tools/favicon-extractor',
             icon: Globe,
         },

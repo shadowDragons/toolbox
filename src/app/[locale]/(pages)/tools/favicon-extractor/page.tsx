@@ -1,6 +1,7 @@
 'use client';
 
 import { Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
@@ -13,6 +14,7 @@ interface FaviconResult {
 }
 
 export default function FaviconExtractor() {
+    const t = useTranslations('Tools.faviconExtractor');
     const [url, setUrl] = useState('');
     const [faviconUrls, setFaviconUrls] = useState<FaviconResult[]>([]);
     const [error, setError] = useState('');
@@ -41,7 +43,7 @@ export default function FaviconExtractor() {
             setFaviconUrls([]);
 
             if (!url) {
-                setError('请输入网址');
+                setError(t('errors.emptyUrl'));
                 return;
             }
 
@@ -74,10 +76,10 @@ export default function FaviconExtractor() {
             setFaviconUrls(results);
 
             if (results.length === 0) {
-                setError('未找到可用的网站图标');
+                setError(t('errors.noFavicon'));
             }
-        } catch (err) {
-            setError('无效的网址');
+        } catch {
+            setError(t('errors.invalidUrl'));
         } finally {
             setLoading(false);
         }
@@ -87,7 +89,7 @@ export default function FaviconExtractor() {
         <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
             <div className="tw-container tw-mx-auto tw-px-4 sm:tw-px-6 lg:tw-px-8">
                 <h1 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-900 tw-mb-8">
-                    网站图标(Favicon)提取器
+                    {t('title')}
                 </h1>
 
                 <div className="tw-space-y-6">
@@ -96,7 +98,7 @@ export default function FaviconExtractor() {
                             <div className="tw-flex tw-gap-4">
                                 <Input
                                     className="tw-flex-1"
-                                    placeholder="输入网址 (例如: google.com)"
+                                    placeholder={t('placeholder')}
                                     value={url}
                                     onChange={(e) => setUrl(e.target.value)}
                                     disabled={loading}
@@ -105,10 +107,10 @@ export default function FaviconExtractor() {
                                     {loading ? (
                                         <>
                                             <Loader2 className="tw-mr-2 tw-h-4 tw-w-4 tw-animate-spin" />
-                                            检查中...
+                                            {t('checking')}
                                         </>
                                     ) : (
-                                        '提取图标'
+                                        t('extract')
                                     )}
                                 </Button>
                             </div>
@@ -119,7 +121,9 @@ export default function FaviconExtractor() {
 
                     {faviconUrls.length > 0 && (
                         <Card className="tw-p-6">
-                            <h2 className="tw-text-xl tw-font-semibold tw-mb-4">可用的图标链接</h2>
+                            <h2 className="tw-text-xl tw-font-semibold tw-mb-4">
+                                {t('availableIcons')}
+                            </h2>
                             <div className="tw-space-y-4">
                                 {faviconUrls.map((result) => (
                                     <div
@@ -128,7 +132,7 @@ export default function FaviconExtractor() {
                                     >
                                         <img
                                             src={result.url}
-                                            alt="Favicon"
+                                            alt={t('faviconAlt')}
                                             className="tw-w-6 tw-h-6"
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement;

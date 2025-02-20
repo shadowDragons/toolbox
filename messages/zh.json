@@ -139,6 +139,21 @@
                 "location": "位置"
             },
             "ipAddress": "IP地址"
+        },
+        "faviconExtractor": {
+            "name": "Favicon提取器",
+            "description": "获取任意网站的图标(Favicon)",
+            "title": "网站图标(Favicon)提取器",
+            "placeholder": "输入网址 (例如: google.com)",
+            "extract": "提取图标",
+            "checking": "检查中...",
+            "availableIcons": "可用的图标链接",
+            "faviconAlt": "网站图标",
+            "errors": {
+                "emptyUrl": "请输入网址",
+                "invalidUrl": "无效的网址",
+                "noFavicon": "未找到可用的网站图标"
+            }
         }
     }
 }

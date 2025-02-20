@@ -101,6 +101,21 @@
             "convert": "Convert",
             "convertResult": "Convert Result"
 		},
+		"faviconExtractor": {
+			"name": "Favicon Extractor",
+			"description": "Extract favicon from any website",
+			"title": "Website Favicon Extractor",
+			"placeholder": "Enter URL (e.g. google.com)",
+			"extract": "Extract Icon",
+			"checking": "Checking...",
+			"availableIcons": "Available Icons",
+			"faviconAlt": "Website Icon",
+			"errors": {
+				"emptyUrl": "Please enter a URL",
+				"invalidUrl": "Invalid URL",
+				"noFavicon": "No favicon found"
+			}
+		},
 		"ipLookup": {
 			"title": "IP Address Lookup Tool",
 			"name": "IP Lookup",
