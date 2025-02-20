@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 import { Button } from '@/app/_components/shadcn/button';
 import { Card } from '@/app/_components/shadcn/card';
+import { generateToolMetadata } from '@/libs/metadata';
 
 interface TimeResult {
     timezone: string;
@@ -159,4 +160,8 @@ export default function WorldClock() {
             </div>
         </div>
     );
+}
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    return generateToolMetadata('/tools/world-clock', locale);
 }
