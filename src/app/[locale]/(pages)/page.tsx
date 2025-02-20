@@ -7,6 +7,7 @@ import {
     Languages,
     Clock,
     Network,
+    Globe,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 // import Link from 'next/link';
@@ -72,6 +73,12 @@ export default function HomePage() {
             description: t('Tools.ipLookup.description'),
             icon: Network,
             href: '/tools/ip-lookup',
+        },
+        {
+            name: 'Favicon提取器',
+            description: '获取任意网站的图标(Favicon)',
+            href: '/tools/favicon-extractor',
+            icon: Globe,
         },
     ];
     return (
