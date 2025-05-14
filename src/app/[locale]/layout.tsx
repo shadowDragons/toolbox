@@ -1,10 +1,13 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Github } from 'lucide-react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
 import { LanguageSwitcher } from '@/app/_components/LanguageSwitcher';
+import { Button } from '@/app/_components/shadcn/button';
+
 import { routing } from '@/i18n/routing';
 
 import './styles/index.css';
@@ -45,8 +48,17 @@ export default async function LocaleLayout({
         <html lang={locale}>
             <body>
                 <NextIntlClientProvider messages={messages}>
-                    <div className="tw-fixed tw-top-4 tw-right-4 tw-z-50">
+                    <div className="tw-fixed tw-top-4 tw-right-4 tw-z-50 tw-flex tw-items-center tw-gap-2">
                         <LanguageSwitcher />
+                        <a
+                            href="https://github.com/shadowDragons/tools"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button variant="outline" size="icon" aria-label="GitHub">
+                                <Github className="tw-h-4 tw-w-4" />
+                            </Button>
+                        </a>
                     </div>
                     {children}
                 </NextIntlClientProvider>
