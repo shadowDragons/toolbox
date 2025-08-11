@@ -164,6 +164,22 @@ const tools: Tool[] = [
             },
         },
     },
+    {
+        name: '短链解析',
+        path: '/tools/short-link-decoder',
+        seo: {
+            zh: {
+                title: '在线短链解析器 - 还原短链接真实地址 | Byte Tools',
+                description:
+                    '免费在线短链解析工具，跟踪重定向链，显示每一步跳转并获取最终链接地址。',
+            },
+            en: {
+                title: 'Online Short Link Decoder - Unshorten URLs | Byte Tools',
+                description:
+                    'Free short link decoder. Follow redirect chain step-by-step and get the final destination URL.',
+            },
+        },
+    },
 ];
 
 // 导出 tools 数组的副本，避免直接修改

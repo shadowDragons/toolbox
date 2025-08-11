@@ -161,6 +161,23 @@
                 "selectTimezone": "请选择时区",
                 "fetchError": "获取时间失败"
             }
+        },
+        "shortLinkDecoder": {
+            "name": "短链解析",
+            "description": "解析短链接重定向链并获取最终地址",
+            "title": "短链解析器",
+            "placeholder": "输入短链接 (例如: https://t.cn/xxxxx)",
+            "decode": "解析",
+            "checking": "解析中...",
+            "finalUrl": "最终链接",
+            "redirectChain": "重定向链路",
+            "copyFinalUrl": "复制最终链接",
+            "copied": "已复制",
+            "errors": {
+                "emptyUrl": "请输入短链接",
+                "invalidUrl": "无效的链接",
+                "resolveFailed": "解析失败，请稍后重试"
+            }
         }
     }
 }

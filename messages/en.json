@@ -159,6 +159,23 @@
 				"selectTimezone": "Please select a time zone",
 				"fetchError": "Failed to fetch time"
 			}
+		},
+		"shortLinkDecoder": {
+			"name": "Short Link Decoder",
+			"description": "Resolve redirect chain and get final destination",
+			"title": "Short Link Decoder",
+			"placeholder": "Enter short link (e.g., https://t.cn/xxxxx)",
+			"decode": "Decode",
+			"checking": "Decoding...",
+			"finalUrl": "Final URL",
+			"redirectChain": "Redirect Chain",
+			"copyFinalUrl": "Copy Final URL",
+			"copied": "Copied",
+			"errors": {
+				"emptyUrl": "Please enter a short link",
+				"invalidUrl": "Invalid URL",
+				"resolveFailed": "Failed to resolve, please try again"
+			}
 		}
 	}
 }
