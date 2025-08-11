@@ -11,9 +11,9 @@ import {
     Clock as WorldClock,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-// import Link from 'next/link';
 
-import { Button } from '@/app/_components/shadcn/button';
+import { buttonVariants } from '@/app/_components/shadcn/button';
+
 import {
     Card,
     CardContent,
@@ -108,9 +108,12 @@ export default function HomePage() {
                                 <CardDescription>{tool.description}</CardDescription>
                             </CardContent>
                             <CardFooter>
-                                <Button className="tw-w-full" asChild>
-                                    <Link href={tool.href || '#'}>{t('Tools.common.useNow')}</Link>
-                                </Button>
+                                <Link
+                                    href={tool.href || '#'}
+                                    className={buttonVariants({ className: 'tw-w-full' })}
+                                >
+                                    {t('Tools.common.useNow')}
+                                </Link>
                             </CardFooter>
                         </Card>
                     ))}
