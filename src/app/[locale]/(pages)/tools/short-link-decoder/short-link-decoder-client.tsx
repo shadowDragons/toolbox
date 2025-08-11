@@ -41,7 +41,7 @@ export default function ShortLinkDecoderClient() {
                 throw new Error(data.error || t('errors.resolveFailed'));
             }
             setSteps(data.steps || []);
-            setFinalUrl(data.finalUrl || '');
+            setFinalUrl(data.target_url || '');
         } catch (e) {
             setError(t('errors.resolveFailed'));
         } finally {

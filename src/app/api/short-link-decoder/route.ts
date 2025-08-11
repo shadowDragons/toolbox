@@ -80,9 +80,9 @@ export async function GET(request: Request) {
         }
 
         const finalStep = steps[steps.length - 1];
-        const finalUrl = finalStep?.url ?? currentUrl;
+        const target_url = finalStep?.url ?? currentUrl;
 
-        return NextResponse.json({ finalUrl, steps });
+        return NextResponse.json({ target_url, steps });
     } catch (e) {
         return NextResponse.json({ error: 'Server error' }, { status: 500 });
     }
